@@ -85,18 +85,6 @@ nav.main a[aria-current="page"]{background:var(--tint);color:var(--brand-text)}
 .btn.white{background:#FFFFFF;color:#0A4F80}
 .btn.white:hover{background:#E8F2FA}
 .menu-toggle{display:none;margin-left:auto;background:none;border:1px solid var(--line);border-radius:8px;padding:8px 12px;font:600 .95rem var(--body);color:var(--ink)}
-@media (max-width:1700px){
-  .menu-toggle{display:block}
-  nav.main{display:none;position:absolute;left:0;right:0;top:100%;background:var(--card);border-bottom:1px solid var(--line);flex-direction:column;padding:8px 20px 16px}
-  nav.main.open{display:flex}
-  header .cta-desktop{display:none}
-}
-@media (max-width:2200px){
-  html[lang=fr] .menu-toggle,html[lang=sw] .menu-toggle{display:block}
-  html[lang=fr] nav.main,html[lang=sw] nav.main{display:none;position:absolute;left:0;right:0;top:100%;background:var(--card);border-bottom:1px solid var(--line);flex-direction:column;padding:8px 20px 16px}
-  html[lang=fr] nav.main.open,html[lang=sw] nav.main.open{display:flex}
-  html[lang=fr] header .cta-desktop,html[lang=sw] header .cta-desktop{display:none}
-}
 main section.view{display:none;padding:40px 0 56px}
 .dots{display:inline-flex;align-items:center;gap:6px;margin-bottom:10px}
 .dots i{display:block;border-radius:50%;background:var(--red)}
@@ -539,8 +527,6 @@ header.site{-webkit-backdrop-filter:none!important;backdrop-filter:none!importan
 .crumbs li+li::before{content:"\203A";margin:0 6px 0 2px;color:#9AA8B5}
 .crumbs a{color:var(--brand-text);text-decoration:none}.crumbs a:hover{text-decoration:underline}
 .crumbs li[aria-current]{color:var(--ink);font-weight:600}
-nav.main a.mhome{display:none}
-nav.main.open a.mhome{display:block}
 .goal{border-left:4px solid #0F75BC}.goal h3{margin-top:0}.goalq{font-size:1.2rem;font-weight:700;color:var(--brand-text);margin:4px 0 10px}
 
 /* Hero: photos first, rotating like a turning cube */
@@ -690,6 +676,50 @@ nav.main.open a.mhome{display:block}
 footer.site a{display:inline-block;padding:4px 0}
 main{overflow-x:clip}
 @media (max-width:360px){.langbar .lbl{display:none}.lbadge{width:44px;height:44px}.logo .compact .lbadge img{width:33px}.logo .compact{gap:8px}.logo .compact b{font-size:.95rem}.logo .compact small{font-size:.58rem}.logo{padding:2px}.menu-toggle{padding:7px 10px}}
+
+/* Header: bigger logo, full menu on computers, dropdown groups */
+header.site .wrap{min-height:96px;gap:20px}
+.lbadge{width:74px;height:74px}
+.logo .compact .lbadge img{width:56px}
+.logo .compact b{font-size:1.6rem}
+.logo .compact small{font-size:.86rem;letter-spacing:.02em}
+nav.main{gap:4px;align-items:center}
+nav.main>a,nav.main .ddbtn{font-size:1rem;font-weight:600;padding:10px 14px;border-radius:999px;color:var(--ink)}
+nav.main>a:hover,nav.main .ddbtn:hover,nav.main .dd.open .ddbtn{background:var(--tint);color:var(--brand-text)}
+nav.main>a[aria-current="page"]{background:linear-gradient(135deg,rgba(15,117,188,.12),rgba(237,28,36,.08));color:var(--brand-text)}
+.dd{position:relative}
+.ddbtn{display:inline-flex;align-items:center;gap:6px;background:none;border:0;font:inherit;cursor:pointer;white-space:nowrap}
+.ddbtn svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:1.8;transition:transform .2s}
+.dd.open .ddbtn svg{transform:rotate(180deg)}
+.dd:has(a[aria-current="page"]) .ddbtn{color:var(--brand-text);background:linear-gradient(135deg,rgba(15,117,188,.12),rgba(237,28,36,.08))}
+.ddmenu{position:absolute;top:calc(100% + 10px);left:50%;transform:translate(-50%,6px);min-width:320px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:10px;box-shadow:0 24px 50px -20px rgba(10,79,128,.35);opacity:0;visibility:hidden;transition:opacity .18s,transform .18s,visibility .18s;z-index:30}
+.ddmenu::before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
+.ddmenu::after{content:"";position:absolute;left:24px;right:24px;top:-1px;height:3px;border-radius:0 0 3px 3px;background:linear-gradient(90deg,#0F75BC,#ED1C24)}
+.dd.open .ddmenu{opacity:1;visibility:visible;transform:translate(-50%,0)}
+@media (hover:hover) and (min-width:1101px){.dd:hover .ddmenu,.dd:focus-within .ddmenu{opacity:1;visibility:visible;transform:translate(-50%,0)}.dd:hover .ddbtn svg{transform:rotate(180deg)}}
+.ddmenu a{display:block;text-decoration:none;padding:10px 14px;border-radius:12px;color:var(--ink);white-space:normal}
+.ddmenu a b{display:block;font-weight:700;color:var(--brand-text);font-size:.98rem}
+.ddmenu a small{display:block;color:var(--muted);font-size:.84rem;margin-top:2px}
+.ddmenu a:hover,.ddmenu a[aria-current="page"]{background:var(--tint)}
+header .cta-desktop{margin-left:6px}
+@media (max-width:1280px){nav.main>a,nav.main .ddbtn{padding:9px 10px;font-size:.95rem}.logo .compact b{font-size:1.4rem}.logo .compact small{font-size:.78rem}.lbadge{width:66px;height:66px}.logo .compact .lbadge img{width:50px}}
+@media (max-width:1439px){html[lang=fr] header .cta-desktop,html[lang=sw] header .cta-desktop{display:none}}
+@media (max-width:1100px){
+  header.site .wrap{min-height:84px}
+  .menu-toggle{display:block}
+  nav.main{display:none;position:absolute;left:0;right:0;top:100%;background:var(--card);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;padding:10px 20px 18px;max-height:calc(100vh - 120px);overflow:auto;box-shadow:0 20px 30px -20px rgba(10,79,128,.3)}
+  nav.main.open{display:flex}
+  header .cta-desktop{display:none}
+  nav.main>a,nav.main .ddbtn{border-radius:10px;padding:12px 10px;width:100%;justify-content:space-between;text-align:left}
+  .ddmenu{position:static;transform:none!important;opacity:1;visibility:visible;box-shadow:none;border:0;padding:0 0 6px 8px;min-width:0;display:none}
+  .ddmenu::after,.ddmenu::before{display:none}
+  .dd.open .ddmenu{display:block}
+  .ddmenu a{padding:9px 12px}
+  .ddmenu a small{display:none}
+  .lbadge{width:56px;height:56px}.logo .compact .lbadge img{width:42px}.logo .compact b{font-size:1.25rem}.logo .compact small{font-size:.72rem}
+}
+@media (max-width:520px){.lbadge{width:52px;height:52px}.logo .compact .lbadge img{width:40px}.logo .compact b{font-size:1.08rem}.logo .compact small{font-size:.68rem}header.site .wrap{min-height:76px}}
+@media (max-width:360px){.lbadge{width:44px;height:44px}.logo .compact .lbadge img{width:33px}.logo .compact b{font-size:.95rem}.logo .compact small{font-size:.58rem}}
 </style>
 </head>
 <body>
@@ -704,16 +734,21 @@ main{overflow-x:clip}
     <a class="logo" href="/"><span class="compact"><span class="lbadge"><img alt="" width="79" height="30" src="img/logo-mark.png"></span><span><b>THEHASA</b><small>HOLDINGS COMPANY LIMITED</small></span></span></a>
     <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav">Menu</button>
     <nav class="main" id="mainNav" aria-label="Main">
-      <a href="/" class="mhome">Home</a>
-      <a href="/mobility">Mobility</a>
-      <a href="/trade">Trade and Supply</a>
-      <a href="/agribusiness">Agribusiness</a>
-      <a href="/realestate">Real Estate</a>
-      <a href="/tvet">TVET Services</a>
+      <a href="/">Home</a>
+      <div class="dd"><button type="button" class="ddbtn" aria-expanded="false">Our businesses<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3"/></svg></button><div class="ddmenu">
+        <a href="/mobility"><b>Mobility</b><small>Vehicle import, car hire, airport transfers</small></a>
+        <a href="/trade"><b>Trade and Supply</b><small>Materials, stationery, food and equipment</small></a>
+        <a href="/agribusiness"><b>Agribusiness</b><small>Farmer groups, produce and buyers</small></a>
+        <a href="/realestate"><b>Real Estate and Construction</b><small>Buy, sell and build</small></a>
+        <a href="/tvet"><b>TVET Services</b><small>Master artisan for vocational training</small></a>
+      </div></div>
       <a href="/market">Market</a>
-      <a href="/about">About us</a>
-      <a href="/work">Our Work</a>
-      <a href="/team">Team</a>
+      <div class="dd"><button type="button" class="ddbtn" aria-expanded="false">About<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3"/></svg></button><div class="ddmenu">
+        <a href="/about"><b>About us</b><small>Who we are and how we started</small></a>
+        <a href="/work"><b>Our Work</b><small>What we have delivered</small></a>
+        <a href="/team"><b>Directors and Team</b><small>The people behind THEHASA</small></a>
+        <a href="/invest"><b>Invest with us</b><small>For investors and partners</small></a>
+      </div></div>
       <a href="/contact">Contact</a>
     </nav>
     <a class="btn red small cta-desktop" href="/request" data-choose="request">Request a car</a>
@@ -2738,6 +2773,20 @@ r.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTo
   window.addEventListener('hashchange', function(){ setTimeout(render, 20); });
   window.addEventListener('popstate', function(){ setTimeout(render, 20); });
   setTimeout(render, 30);
+})();
+</script>
+<script>
+(function(){
+  var dds = document.querySelectorAll('nav.main .dd');
+  function closeAll(except){ dds.forEach(function(d){ if (d !== except) { d.classList.remove('open'); d.querySelector('.ddbtn').setAttribute('aria-expanded','false'); } }); }
+  dds.forEach(function(d){
+    var b = d.querySelector('.ddbtn');
+    b.addEventListener('click', function(e){ e.stopPropagation(); var o = !d.classList.contains('open'); closeAll(d); d.classList.toggle('open', o); b.setAttribute('aria-expanded', o ? 'true' : 'false'); });
+    d.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ closeAll(); }); });
+  });
+  document.addEventListener('click', function(e){ if (!e.target.closest('nav.main .dd')) { closeAll(); } });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') { closeAll(); } });
+  window.addEventListener('popstate', function(){ closeAll(); }); window.addEventListener('hashchange', function(){ closeAll(); });
 })();
 </script>
 </body>
