@@ -572,7 +572,7 @@ header.site{-webkit-backdrop-filter:none!important;backdrop-filter:none!importan
 .dtext{position:absolute;left:6%;top:50%;transform:translateY(-50%);width:50%;text-align:left}
 .dsep{display:inline-block;margin:0 .5em;color:#0F75BC;font-weight:400}
 .hero2 .stage{container-type:inline-size}
-@container (max-width:900px){.deyebrow{white-space:normal}.deyebrow .dsep{display:none}.deyebrow>span:not(.dsep){display:block}.deyebrow>span:last-child{font-weight:600;opacity:.85;margin-top:2px}}
+@container (max-width:1150px){.deyebrow{white-space:normal}.deyebrow .dsep{display:none}.deyebrow>span:not(.dsep){display:block}.deyebrow>span:last-child{font-weight:600;opacity:.85;margin-top:2px}}
 .deyebrow{white-space:nowrap;font-weight:700;color:var(--red-deep);font-size:clamp(.95rem,1.4vw,1.1rem);margin:0 0 14px}
 .dsay{font-size:clamp(2rem,4.6vw,4rem);font-weight:800;letter-spacing:-.035em;line-height:1.04;color:var(--ink);margin:0}
 .dsay span{display:block}.dsay em{display:inline;-webkit-box-decoration-break:clone;box-decoration-break:clone}
@@ -719,6 +719,66 @@ header .cta-desktop{margin-left:6px}
 }
 @media (max-width:520px){.lbadge{width:52px;height:52px}.logo .compact .lbadge img{width:40px}.logo .compact b{font-size:1.08rem}.logo .compact small{font-size:.68rem}header.site .wrap{min-height:76px}}
 @media (max-width:360px){.lbadge{width:44px;height:44px}.logo .compact .lbadge img{width:33px}.logo .compact b{font-size:.95rem}.logo .compact small{font-size:.58rem}}
+.logo .lslogan{display:block;font-style:normal;color:#ED1C24;font-weight:500;font-size:.74rem;letter-spacing:.01em;line-height:1.2;margin-top:4px;padding-top:3px;border-top:2px solid #ED1C24;white-space:nowrap}
+@media (max-width:1280px){.logo .lslogan{font-size:.68rem}}
+@media (max-width:1100px){.logo .lslogan{font-size:.64rem;margin-top:3px;padding-top:2px;border-top-width:1.5px}}
+@media (max-width:520px){.logo .lslogan{font-size:.56rem}}
+@media (max-width:360px){.logo .lslogan{font-size:.45rem}}
+/* Larger logo circle */
+header.site .wrap{min-height:106px}
+.lbadge{width:92px;height:92px}.logo .compact .lbadge img{width:70px}
+@media (max-width:1280px){.lbadge{width:82px;height:82px}.logo .compact .lbadge img{width:62px}}
+@media (max-width:1100px){header.site .wrap{min-height:90px}.lbadge{width:68px;height:68px}.logo .compact .lbadge img{width:52px}}
+@media (max-width:520px){header.site .wrap{min-height:82px}.lbadge{width:62px;height:62px}.logo .compact .lbadge img{width:47px}}
+@media (max-width:360px){.lbadge{width:46px;height:46px}.logo .compact .lbadge img{width:35px}}
+.acadband{display:flex;gap:24px;align-items:center;justify-content:space-between;margin:28px 0 0;padding:26px 28px;border-radius:22px;color:#fff;background:linear-gradient(110deg,#0A4F80,#0F75BC 55%,#7A3A6E 85%,#C8151C)}
+.acadband h2{color:#fff;margin:0 0 6px;font-size:clamp(1.3rem,2.6vw,1.8rem)}.acadband p{margin:0;color:#E6F0F8;max-width:62ch}.acadband .acadeye{font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:.78rem;color:#fff;margin-bottom:6px}
+.acadband .btn{flex:none;background:#fff;color:#C8151C}.acadband .btn:hover{background:#FDECEC}
+@media (max-width:700px){.acadband{flex-direction:column;align-items:flex-start}}
+.ddmenu a.ddacad{border-top:1px solid var(--line);margin-top:4px;padding-top:12px}
+.acadfeat{display:grid;grid-template-columns:1.1fr 1fr;border-radius:28px;overflow:hidden;color:#fff;background:linear-gradient(120deg,#0A4F80,#0F75BC 50%,#7A3A6E 82%,#C8151C);box-shadow:0 30px 60px -30px rgba(10,79,128,.55)}
+.acadfeat .aftext{padding:44px 44px 40px}
+.acadfeat h2{color:#fff;font-size:clamp(1.7rem,3.4vw,2.6rem);margin:0 0 12px;letter-spacing:-.025em}
+.acadfeat p{color:#E6F0F8;font-size:1.08rem;max-width:56ch}
+.acadfeat .acadeye{color:#fff;font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:.8rem;margin-bottom:10px}
+.acadfeat ul{list-style:none;padding:0;margin:0 0 22px}
+.acadfeat li{position:relative;padding-left:26px;margin-bottom:8px;font-weight:600}
+.acadfeat li::before{content:"";position:absolute;left:0;top:7px;width:12px;height:12px;border-radius:50%;background:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.25)}
+.acadfeat .afbtns{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.acadfeat .btn.white{background:#fff;color:#C8151C}.acadfeat .btn.white:hover{background:#FDECEC}
+.acadfeat .aflink{color:#fff;font-weight:700;text-decoration:none}.acadfeat .aflink:hover{text-decoration:underline}
+.acadfeat .afpic{position:relative;min-height:320px}
+.acadfeat .afpic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.acadfeat .afpic::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(15,117,188,.55),rgba(15,117,188,0) 35%)}
+@media (max-width:860px){.acadfeat{grid-template-columns:1fr}.acadfeat .afpic{min-height:220px;order:-1}.acadfeat .afpic::before{background:linear-gradient(0deg,rgba(15,117,188,.6),rgba(15,117,188,0) 40%)}.acadfeat .aftext{padding:28px 24px}}
+.laye2{border:1px solid var(--line);border-radius:24px;padding:30px;background:radial-gradient(60% 60% at 0% 0%,rgba(15,117,188,.09),transparent 70%),radial-gradient(60% 60% at 100% 100%,rgba(237,28,36,.07),transparent 70%),#fff}
+.laye2 .acadeye2{color:var(--red-deep);font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:.8rem;margin-bottom:6px}
+.laye2 h2{margin:0 0 10px}
+.l2grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:18px}
+.l2grid div{border-radius:18px;padding:18px;background:#fff;border:1px solid var(--line)}
+.l2grid b{display:block;color:var(--brand-text);font-size:1.05rem;margin-bottom:6px}
+.l2grid span{color:var(--muted);font-size:.95rem}
+@media (max-width:980px){.l2grid{grid-template-columns:1fr 1fr}}@media (max-width:560px){.l2grid{grid-template-columns:1fr}.laye2{padding:22px}}
+.otherbox{margin-top:8px}
+/* Soft blue and red light from the page edges */
+body::before,body::after{content:"";position:fixed;top:0;bottom:0;width:22vw;max-width:340px;pointer-events:none;z-index:0}
+body::before{left:0;background:linear-gradient(90deg,rgba(15,117,188,.085),rgba(15,117,188,.03) 45%,rgba(15,117,188,0))}
+body::after{right:0;background:linear-gradient(270deg,rgba(237,28,36,.075),rgba(237,28,36,.025) 45%,rgba(237,28,36,0))}
+@media (max-width:700px){body::before,body::after{width:14vw}}
+@media print{body::before,body::after{display:none}}
+.copy{border-top:1px solid rgba(255,255,255,.15);margin-top:24px;padding-top:16px;font-size:.88rem;display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:space-between}
+main,footer.site{position:relative;z-index:1}
+header.site{position:sticky;z-index:10}
+footer.site .copy{border-top-color:var(--line);padding-bottom:60px}
+footer.site .social a{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:7px 14px 7px 10px}
+footer.site .social svg{width:16px;height:16px;flex:none}
+/* Social buttons: one clean rule everywhere */
+.social{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;max-width:340px;margin-top:12px}
+.social a,footer.site .social a{display:flex!important;align-items:center;justify-content:center;gap:8px;min-height:40px;padding:8px 12px!important;line-height:1;border-radius:999px;border:1px solid var(--line);background:#fff;color:#0A4F80;font-weight:700;font-size:.9rem;text-decoration:none;white-space:nowrap}
+.social svg{width:16px;height:16px;flex:none;fill:#0F75BC;display:block}
+.social span{display:block}
+@media (min-width:361px) and (max-width:420px){header.site .wrap{gap:8px}.lbadge{width:54px;height:54px}.logo .compact .lbadge img{width:41px}.logo .compact{gap:8px}.logo .compact b{font-size:1rem}.logo .compact small{font-size:.62rem}.logo .lslogan{font-size:.5rem}.menu-toggle{padding:8px 10px}}
+@media (min-width:701px) and (max-width:1150px){.dsay{font-size:clamp(1.9rem,3.6vw,2.6rem)}.dtext{width:46%}}
 </style>
 </head>
 <body>
@@ -730,7 +790,7 @@ header .cta-desktop{margin-left:6px}
   <div class="langbar" translate="no"><div class="in"><span class="lbl">Language / Langue / Lugha</span><button type="button" data-lang="en" aria-pressed="true" lang="en"><span class="ln">English</span><span class="ls">EN</span></button><button type="button" data-lang="fr" aria-pressed="false" lang="fr"><span class="ln">Français</span><span class="ls">FR</span></button><button type="button" data-lang="sw" aria-pressed="false" lang="sw"><span class="ln">Kiswahili</span><span class="ls">SW</span></button></div></div>
 
   <div class="wrap">
-    <a class="logo" href="/"><span class="compact"><span class="lbadge"><img alt="" width="79" height="30" src="img/logo-mark.png"></span><span><b>THEHASA</b><small>HOLDINGS COMPANY LIMITED</small></span></span></a>
+    <a class="logo" href="/"><span class="compact"><span class="lbadge"><img alt="" width="79" height="30" src="img/logo-mark.png"></span><span><b>THEHASA</b><small>HOLDINGS COMPANY LIMITED</small><em class="lslogan" translate="no">Living in the Moment, Investing in Tomorrow.</em></span></span></a>
     <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav">Menu</button>
     <nav class="main" id="mainNav" aria-label="Main">
       <a href="/">Home</a>
@@ -740,6 +800,7 @@ header .cta-desktop{margin-left:6px}
         <a href="/agribusiness"><b>Agribusiness</b><small>Farmer groups, produce and buyers</small></a>
         <a href="/realestate"><b>Real Estate and Construction</b><small>Buy, sell and build</small></a>
         <a href="/tvet"><b>TVET Services</b><small>Master artisan for vocational training</small></a>
+        <a href="/academy/" class="ddacad"><b>Digital Master Artisan Model Academy</b><small>For artisans: prepare to train learners in your business</small></a>
       </div></div>
       <a href="/market">Market</a>
       <div class="dd"><button type="button" class="ddbtn" aria-expanded="false">About<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3"/></svg></button><div class="ddmenu">
@@ -830,6 +891,21 @@ header .cta-desktop{margin-left:6px}
           
           <span class="status active">Active</span>
         </div><div class="tphoto"><img src="img/skills-carpentry.webp" srcset="img/skills-carpentry-s.webp 720w, img/skills-carpentry.webp 1400w" sizes="(max-width:760px) 100vw, 640px" alt="" loading="lazy" decoding="async" style="object-position:center 55%"><span class="bubble" aria-hidden="true"><b>1,400+</b><small>young people trained</small></span><div class="tilelinks"><a href="/tvet">Learn more &#8250;</a><a href="/tvet">Request a quotation &#8250;</a></div></div></article>
+      </div>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="wrap">
+      <div class="acadfeat reveal">
+        <div class="aftext">
+          <p class="acadeye">New from THEHASA</p>
+          <h2>Digital Master Artisan Model Academy</h2>
+          <p>Skills already live in our communities, in salons, tailoring shops, workshops and garages. The Academy prepares experienced artisans to train young people in their own businesses, and links that training to supervision, records and national assessment.</p>
+          <ul><li>For artisans: register, prepare online and join live classes</li><li>For learners: learn as you earn, with paid work as your skills grow</li><li>For partners: reach learners where they live, with one accountable partner</li></ul>
+          <div class="afbtns"><a class="btn white" href="/academy/">Visit the Academy</a><a class="aflink" href="/academy/#why">Why we built it &#8250;</a></div>
+        </div>
+        <div class="afpic"><img src="img/skills-artisans-2-s.webp" alt="Artisans planning lessons together around a table" loading="lazy" decoding="async"></div>
       </div>
     </div>
   </div>
@@ -1004,7 +1080,7 @@ header .cta-desktop{margin-left:6px}
     <p class="lead">Takes about two minutes. Your request comes straight to us, and we reply with a written quote or a booking confirmation. We usually reply the same day, and always by the next working day.</p>
     <form id="carForm" class="panel" novalidate>
       <input class="hp" type="text" id="cfHp" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <div class="field"><label for="cfNeed">What do you need?</label><select id="cfNeed"><option>Buy a car (import from Japan)</option><option>Hire a car (with driver)</option><option>Airport pickup or drop-off</option></select><div class="hint">For hire or airport pickup, add the date, time and place in the last box.</div></div>
+      <div class="field"><label for="cfNeed">What do you need?</label><select id="cfNeed"><option>Buy a car (import from Japan)</option><option>Hire a car (with driver)</option><option>Airport pickup or drop-off</option><option>Other</option></select><div class="hint">For hire or airport pickup, add the date, time and place in the last box.</div></div>
       <div class="field"><label for="cfLink">Vehicle page link (optional)</label><input id="cfLink" type="url" placeholder="Paste the link from Autocom Japan or BE FORWARD"></div>
       <div class="row">
         <div class="field"><label for="cfMake">Make</label><input id="cfMake" placeholder="e.g. Toyota"></div>
@@ -1076,7 +1152,7 @@ header .cta-desktop{margin-left:6px}
         <div class="field"><label for="hPax">Passengers</label><input id="hPax" type="number" min="1"></div>
       </div>
       <div class="row">
-        <div class="field"><label for="hLug">Luggage or goods</label><select id="hLug"><option value="No luggage">No luggage</option><option value="Small bags only">Small bags only</option><option value="Suitcases">Suitcases</option><option value="Heavy or bulky goods">Heavy or bulky goods</option></select></div>
+        <div class="field"><label for="hLug">Luggage or goods</label><select id="hLug"><option value="No luggage">No luggage</option><option value="Small bags only">Small bags only</option><option value="Suitcases">Suitcases</option><option value="Heavy or bulky goods">Heavy or bulky goods</option><option>Other</option></select></div>
         <div class="field"><label for="hPurpose">Purpose</label><input id="hPurpose" placeholder="e.g. field visit, wedding"></div>
       </div>
       <p class="hint" style="margin:0 0 12px">Share your group size and luggage, and we will prepare a comfortable vehicle that suits your journey. We then call you with a price based on the time, distance and route.</p>
@@ -1110,7 +1186,7 @@ header .cta-desktop{margin-left:6px}
         <div class="field"><label for="aPhone">Phone</label><input id="aPhone" type="tel" required></div>
       </div>
       <div class="row">
-        <div class="field"><label for="aDir">What do you need?</label><select id="aDir"><option>Airport pickup (collect me from the airport)</option><option>Airport drop-off (take me to the airport)</option><option>Goods to the airport</option><option>Goods from the airport</option></select></div>
+        <div class="field"><label for="aDir">What do you need?</label><select id="aDir"><option>Airport pickup (collect me from the airport)</option><option>Airport drop-off (take me to the airport)</option><option>Goods to the airport</option><option>Goods from the airport</option><option>Other</option></select></div>
         <div class="field"><label for="aFlight">Flight number</label><input id="aFlight" placeholder="e.g. KQ 414"></div>
       </div>
       <div class="row">
@@ -1321,8 +1397,8 @@ header .cta-desktop{margin-left:6px}
           <div class="field"><label for="bWhere">Location (district and town)</label><input id="bWhere"></div>
         </div>
         <div class="row">
-          <div class="field"><label for="bLand">Land</label><select id="bLand"><option>I own the land and have a title</option><option>I own the land, title in process</option><option>I am buying land</option><option>I need help finding land</option></select></div>
-          <div class="field"><label for="bPlans">Plans</label><select id="bPlans"><option>I have approved plans</option><option>I have plans, not yet approved</option><option>I need plans drawn</option></select></div>
+          <div class="field"><label for="bLand">Land</label><select id="bLand"><option>I own the land and have a title</option><option>I own the land, title in process</option><option>I am buying land</option><option>I need help finding land</option><option>Other</option></select></div>
+          <div class="field"><label for="bPlans">Plans</label><select id="bPlans"><option>I have approved plans</option><option>I have plans, not yet approved</option><option>I need plans drawn</option><option>Other</option></select></div>
         </div>
         <div class="row">
           <div class="field"><label for="bBudget">Budget range (optional)</label><input id="bBudget" placeholder="e.g. UGX 150 to 200 million"></div>
@@ -1345,6 +1421,17 @@ header .cta-desktop{margin-left:6px}
     <p class="lead">Vocational skills is where THEHASA began, and it remains part of our business. Organisations that need a private sector partner to train young people contract THEHASA as master artisan. We take full responsibility for delivery and results, and you hold one accountable partner to the contract.</p>
     <div class="serve reveal"><div><b>For businesses and organisations</b><span>NGOs, UN agencies, universities and government programmes that contract THEHASA as master artisan to train young people.</span></div></div>
 
+    <div class="acadband reveal"><div><p class="acadeye">New</p><h2>Digital Master Artisan Model Academy</h2><p>Experienced artisans register online, prepare through live classes and short modules, and record their learners' progress from a phone, while THEHASA supervises quality and assessment.</p></div><a class="btn red" href="/academy/">Open the Academy</a></div>
+    <div class="laye2 section reveal">
+      <div class="l2head"><p class="acadeye2">Learn as you earn</p><h2>Our learners earn while they learn</h2><p>Many of the young people we train already support a household and cannot spend months without income. In the Master Artisan Model, once a learner can do a task to standard, the artisan engages them in real, supervised customer work and pays them a fair share agreed in writing. Income grows with every competence they master.</p></div>
+      <div class="l2grid">
+        <div><b>Learners stay to the end</b><span>Earning from early on means they do not have to choose between food and training.</span></div>
+        <div><b>Real work, real standards</b><span>They serve real customers, so their skills are market-tested before they finish.</span></div>
+        <div><b>Artisans grow too</b><span>Productive learners help artisans take on more orders, and artisans can hire the best.</span></div>
+        <div><b>A smoother step into work</b><span>Learners leave with income, references and a network, ready for a job or their own business.</span></div>
+      </div>
+      <p class="hint" style="margin:14px 0 0">Earning follows learning, never the other way round. Pay is agreed in writing, training time stays protected, work is supervised and safe, and it follows Uganda's labour laws and the ILO Quality Apprenticeships Recommendation, 2023 (No. 208).</p>
+    </div>
     <div class="grid g3 section" style="margin-top:28px">
       <div class="card reveal" style="align-items:center;text-align:center"><p class="stat" style="font-size:3.6rem">30+</p><p>artisans led and supervised under one contract</p></div>
       <div class="card reveal" style="align-items:center;text-align:center"><p class="stat" style="font-size:3.6rem">1,400+</p><p>young people trained under our contracts, from refugee and host communities</p></div>
@@ -1402,7 +1489,7 @@ header .cta-desktop{margin-left:6px}
           <div class="field"><label for="sNum">Number of trainees</label><input id="sNum" type="number" min="1"></div>
           <div class="field"><label for="sDur">Duration</label><input id="sDur" placeholder="e.g. 3 months"></div>
         </div>
-        <div class="field"><label for="sModel">How would you like to work with us?</label><select id="sModel"><option>Lead master artisan (we train trainees ourselves and supervise a network of artisans)</option><option>Centre-based master artisan (training at our centre)</option><option>Not sure yet, please advise</option></select></div>
+        <div class="field"><label for="sModel">How would you like to work with us?</label><select id="sModel"><option>Lead master artisan (we train trainees ourselves and supervise a network of artisans)</option><option>Centre-based master artisan (training at our centre)</option><option>Not sure yet, please advise</option><option>Other</option></select></div>
         <div class="field"><label for="sTrades">Trades</label><input id="sTrades" placeholder="e.g. tailoring, hairdressing, welding"></div>
         <fieldset class="field checks">
           <legend>Items to quote for</legend>
@@ -1489,13 +1576,13 @@ header .cta-desktop{margin-left:6px}
         </div>
         <div class="row">
           <div class="field"><label for="slMiles">Mileage (km)</label><input id="slMiles" inputmode="numeric" placeholder="e.g. 98,000"></div>
-          <div class="field"><label for="slLog">Is the logbook in your name?</label><select id="slLog"><option>Yes</option><option>No, I am authorised by the owner</option><option>Transfer in process</option></select></div>
+          <div class="field"><label for="slLog">Is the logbook in your name?</label><select id="slLog"><option>Yes</option><option>No, I am authorised by the owner</option><option>Transfer in process</option><option>Other</option></select></div>
         </div>
       </div>
       <div class="grp" data-grp="machine" hidden>
         <div class="row">
           <div class="field"><label for="slItem">Item</label><input id="slItem" placeholder="e.g. tractor, maize mill, 20 kVA generator"></div>
-          <div class="field"><label for="slCond">Condition</label><select id="slCond"><option>New</option><option>Used, working well</option><option>Used, needs repair</option></select></div>
+          <div class="field"><label for="slCond">Condition</label><select id="slCond"><option>New</option><option>Used, working well</option><option>Used, needs repair</option><option>Other</option></select></div>
         </div>
       </div>
       <div class="grp" data-grp="produce" hidden>
@@ -1696,7 +1783,7 @@ header .cta-desktop{margin-left:6px}
           <div class="field"><label for="iEmail">Email</label><input id="iEmail" type="email"></div>
           <div class="field"><label for="iPhone">Phone</label><input id="iPhone" type="tel"></div>
         </div>
-        <div class="field"><label for="iInt">Interest</label><select id="iInt"><option>The holding company</option><option>A specific business unit</option><option>Loan or debt finance</option><option>Partnership</option></select></div>
+        <div class="field"><label for="iInt">Interest</label><select id="iInt"><option>The holding company</option><option>A specific business unit</option><option>Loan or debt finance</option><option>Partnership</option><option>Other</option></select></div>
         <div class="field"><label for="iMsg">Message</label><textarea id="iMsg"></textarea></div>
         <button class="btn" type="submit">Send</button>
         <p class="hint pnote">By sending this form, you agree to our <a href="/privacy">privacy notice</a>.</p>
@@ -1871,6 +1958,7 @@ header .cta-desktop{margin-left:6px}
       <a href="/about">About us</a><br><a href="/work">Our Work</a><br><a href="/team">Directors and Team</a><br><a href="/invest">Invest with us</a><br><a href="/contact">Contact</a><br><a href="/privacy">Privacy and Terms</a>
     </div>
   </div>
+<div class="wrap copy"><span>&copy; <span class="yr">2026</span> THEHASA Holdings Company Limited. All rights reserved.</span><span>Website design and development masterminded by Sumi Hamid.</span></div>
 </footer>
 
 <a class="wa" href="https://wa.me/256789372627" aria-label="WhatsApp us on +256 789 372 627">WhatsApp us</a>
@@ -2788,5 +2876,37 @@ r.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTo
   window.addEventListener('popstate', function(){ closeAll(); }); window.addEventListener('hashchange', function(){ closeAll(); });
 })();
 </script>
+<script>
+/* "Other" choices: when someone picks Other, a box appears so they can say what they mean. */
+(function(){
+  var RX = /^(other|something else|yes, other|other certificate|autre|nyingine|jambo lingine)/i;
+  function isOther(sel){ var o = sel.options[sel.selectedIndex]; return !!o && RX.test((o.getAttribute('data-en') || o.text).trim()); }
+  document.querySelectorAll('select').forEach(function(sel, n){
+    var has = Array.prototype.some.call(sel.options, function(o){ return RX.test(o.text.trim()); });
+    if (!has || sel.dataset.otherReady) { return; }
+    sel.dataset.otherReady = '1';
+    Array.prototype.forEach.call(sel.options, function(o){ if (RX.test(o.text.trim())) { o.setAttribute('data-en', o.text.trim()); if (!o.hasAttribute('value')) { o.value = o.text.trim(); } } });
+    var box = document.createElement('input');
+    box.type = 'text'; box.className = 'otherbox'; box.placeholder = 'Please specify'; box.hidden = true;
+    box.setAttribute('aria-label', 'Please specify');
+    box.id = (sel.id || 'sel' + n) + 'Other';
+    sel.insertAdjacentElement('afterend', box);
+    function sync(){ var on = isOther(sel); box.hidden = !on; box.required = on && sel.required; if (on) { box.focus(); } }
+    sel.addEventListener('change', sync);
+    var form = sel.form;
+    if (form) {
+      form.addEventListener('submit', function(){
+        if (!isOther(sel) || !box.value.trim()) { return; }
+        var base = sel.options[sel.selectedIndex].getAttribute('data-en') || 'Other';
+        var opt = document.createElement('option'); opt.value = opt.text = base + ': ' + box.value.trim(); opt.setAttribute('data-typed','1');
+        sel.appendChild(opt); sel.value = opt.value;
+        setTimeout(function(){ opt.remove(); }, 1500);
+      }, true);
+      form.addEventListener('reset', function(){ setTimeout(function(){ box.value = ''; box.hidden = true; }, 0); });
+    }
+  });
+})();
+</script>
+<script>document.querySelectorAll(".yr").forEach(function(e){e.textContent=new Date().getFullYear();});</script>
 </body>
 </html>
