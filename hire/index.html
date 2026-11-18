@@ -356,6 +356,8 @@ h2.big{font-size:clamp(2rem,4.6vw,3.3rem);font-weight:800;letter-spacing:-.03em;
 .langbar{border-bottom:1px solid var(--line);font-size:13px}
 .langbar .in{max-width:1200px;margin:0 auto;padding:6px 20px;display:flex;justify-content:flex-end;align-items:center;gap:6px;flex-wrap:wrap}
 .langbar .lbl{color:var(--muted,#5b6472);margin-right:4px}
+.langbar .toacad{margin-right:auto;text-decoration:none;color:#C8151C;font-size:13px;padding:4px 12px;border-radius:999px;background:linear-gradient(135deg,rgba(15,117,188,.10),rgba(237,28,36,.10));white-space:nowrap}.langbar .toacad b{color:#0F75BC;font-weight:700}.langbar .toacad:hover{background:linear-gradient(135deg,rgba(15,117,188,.18),rgba(237,28,36,.16))}
+@media (max-width:560px){.langbar .lbl{display:none}}
 .langbar button{font:inherit;font-size:13px;border:1px solid var(--line);background:#fff;color:#0F75BC;border-radius:999px;padding:3px 12px;cursor:pointer;min-height:28px}
 .langbar .ls{display:none}
 @media (max-width:480px){.langbar .ln{display:none}.langbar .ls{display:inline}.langbar .in{padding:6px 16px}}
@@ -803,7 +805,7 @@ footer.site .social svg{width:16px;height:16px;flex:none}
 
 
 <header class="site">
-  <div class="langbar" translate="no"><div class="in"><span class="lbl">Language / Langue / Lugha</span><button type="button" data-lang="en" aria-pressed="true" lang="en"><span class="ln">English</span><span class="ls">EN</span></button><button type="button" data-lang="fr" aria-pressed="false" lang="fr"><span class="ln">Français</span><span class="ls">FR</span></button><button type="button" data-lang="sw" aria-pressed="false" lang="sw"><span class="ln">Kiswahili</span><span class="ls">SW</span></button></div></div>
+  <div class="langbar" translate="no"><div class="in"><a class="toacad" href="/academy/"><b>D-MAM Academy</b> <span aria-hidden="true">&#8250;</span></a><span class="lbl">Language / Langue / Lugha</span><button type="button" data-lang="en" aria-pressed="true" lang="en"><span class="ln">English</span><span class="ls">EN</span></button><button type="button" data-lang="fr" aria-pressed="false" lang="fr"><span class="ln">Français</span><span class="ls">FR</span></button><button type="button" data-lang="sw" aria-pressed="false" lang="sw"><span class="ln">Kiswahili</span><span class="ls">SW</span></button></div></div>
 
   <div class="wrap">
     <a class="logo" href="/"><span class="compact"><span class="lbadge"><img alt="" width="79" height="30" src="img/logo-mark.png"></span><span><b>THEHASA</b><small>HOLDINGS COMPANY LIMITED</small><em class="lslogan" translate="no">Living in the Moment, Investing in Tomorrow.</em></span></span></a>
@@ -2809,7 +2811,11 @@ r.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTo
     var lref = rec.data && rec.data['Listing reference'];
     return '<div class="mgreq"><h3 style="margin:0 0 2px">' + esc(rec.kind) + '</h3><p class="hint" style="margin:0 0 8px"><span>Ref</span> ' + esc(rec.ref) + (when ? ' &middot; ' + esc(when) : '') + '</p>' +
       '<table class="mgtable">' + rows + '</table>' +
-      '<div class="mgbtns"><button class="btn alt" type="button" data-pdf="1">Open the PDF</button>' + (rec.pdf ? '<a class="btn alt" href="' + esc(rec.pdf) + '" target="_blank" rel="noopener">PDF in Drive</a>' : '') + '</div>' +
+      '<div class="mgbtns">' + (rec.pdf ? '<a class="btn alt" href="' + esc(rec.pdf) + '" target="_blank" rel="noopener">Open the PDF to file</a>' : '<button class="btn alt" type="button" data-pdf="1">Open the PDF to file</button>') + '</div>' +
+      (rec.kind === 'Customer review' ? '<div class="mgapprove"><p style="margin:14px 0 6px"><b>Status:</b> ' + esc(rec.status || 'New, waiting for your decision') + '</p>' +
+        (/^(published|not published)/i.test(rec.status || '') ? '' : '<p class="hint" style="margin:0 0 8px">Publish shows the rating and comment on the website, with only the first name, the first letter of the surname and the town. Keep private files it for the team to learn from, and nothing appears on the website.</p>' +
+        '<div class="mgbtns"><button class="btn" type="button" data-rvpub="' + esc(rec.ref) + '">Publish on the website</button><button class="btn alt" type="button" data-rvkeep="' + esc(rec.ref) + '">Keep private</button></div>') +
+        '<p class="hint" data-mgmsg style="margin:8px 0 0"></p></div>' : '') +
       (rec.kind === 'Market listing request' ? '<div class="mgapprove"><p style="margin:14px 0 6px"><b>Status:</b> ' + esc(rec.status || 'New') + '</p>' +
         (/^(approved|discarded)/i.test(rec.status || '') ? '' : '<p class="hint" style="margin:0 0 8px">Before approving: call the owner, check ownership and ID, agree the terms, and check that no photo shows a number plate, plot number or phone number.</p>' +
         '<div class="mgbtns"><button class="btn" type="button" data-approve="' + esc(rec.ref) + '">Approve and publish</button><button class="btn alt" type="button" data-discard="' + esc(rec.ref) + '">Discard</button></div>') +
@@ -2823,6 +2829,20 @@ r.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTo
       setTimeout(function(){ var el = document.getElementById('item-' + ref); if (el) { el.scrollIntoView({behavior:'smooth', block:'center'}); el.classList.add('flash'); setTimeout(function(){ el.classList.remove('flash'); }, 2600); } }, 350);
     }); });
     var p = out.querySelector('[data-pdf]'); if (p && rec) { p.addEventListener('click', function(){ window.thehasaShowRecord(rec); }); }
+    out.querySelectorAll('[data-rvpub],[data-rvkeep]').forEach(function(b){
+      var pub = b.hasAttribute('data-rvpub'), label = b.textContent, armed = false;
+      b.addEventListener('click', function(){
+        var msg = out.querySelector('[data-mgmsg]'), all = out.querySelectorAll('[data-rvpub],[data-rvkeep]');
+        if (!armed) { armed = true; b.textContent = 'Tap again to confirm'; setTimeout(function(){ armed = false; b.textContent = label; }, 5000); return; }
+        var pin = ''; try { pin = sessionStorage.getItem('thehasaPin') || ''; } catch (e) {}
+        all.forEach(function(x){ x.disabled = true; }); msg.textContent = 'Working...';
+        fetch(FIND_URL, {method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify({action: 'review', ref: b.getAttribute(pub ? 'data-rvpub' : 'data-rvkeep'), publish: pub, pin: pin})})
+          .then(function(r){ return r.json(); }).then(function(j){
+            if (j && j.ok) { msg.innerHTML = pub ? '<b>Published.</b> It shows in the reviews on the website within a minute.' : '<b>Kept private.</b> It stays in your records and does not appear on the website.'; all.forEach(function(x){ x.remove(); }); }
+            else { msg.textContent = (j && j.error === 'PIN') ? 'Your sign-in has expired. Press Lock, open again with your PIN, and retry.' : ((j && j.error) || 'That did not work. Try again.'); all.forEach(function(x){ x.disabled = false; }); }
+          }).catch(function(){ msg.textContent = 'No connection. Try again.'; all.forEach(function(x){ x.disabled = false; }); });
+      });
+    });
     out.querySelectorAll('[data-approve],[data-discard]').forEach(function(b){
       var isA = b.hasAttribute('data-approve'), label = b.textContent, armed = false;
       b.addEventListener('click', function(){
