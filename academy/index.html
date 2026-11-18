@@ -45,7 +45,7 @@ nav.main a.cta{background:var(--red-deep);color:#fff;margin-left:6px}
 nav.main a.cta:hover{background:#A51016;color:#fff}
 .menu{display:none;margin-left:auto;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;font:700 1rem var(--font);color:var(--ink)}
 nav.main a{padding:10px 11px;font-size:.95rem}
-@media (max-width:1040px){
+@media (max-width:1160px){
   .menu{display:block}
   nav.main{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;background:#fff;border-bottom:1px solid var(--line);padding:10px 20px 18px;box-shadow:0 20px 30px -20px rgba(10,79,128,.3)}
   nav.main.open{display:flex}
@@ -253,17 +253,22 @@ header.site .wrap{min-height:108px}
 .ddmenu::before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
 .ddmenu::after{content:"";position:absolute;left:20px;right:20px;top:-1px;height:3px;border-radius:0 0 3px 3px;background:linear-gradient(90deg,#0F75BC,#ED1C24)}
 .dd.open .ddmenu{opacity:1;visibility:visible;transform:translate(-50%,0)}
-@media (hover:hover) and (min-width:1041px){.dd:hover .ddmenu{opacity:1;visibility:visible;transform:translate(-50%,0)}.dd:hover .ddbtn svg{transform:rotate(180deg)}}
+@media (hover:hover) and (min-width:1161px){.dd:hover .ddmenu{opacity:1;visibility:visible;transform:translate(-50%,0)}.dd:hover .ddbtn svg{transform:rotate(180deg)}}
 .dd.shut .ddmenu{opacity:0!important;visibility:hidden!important;pointer-events:none}.dd.shut .ddbtn svg{transform:none!important}
 nav.main .ddmenu a{display:block;white-space:normal;border-radius:10px;padding:9px 12px}
 .ddmenu a b{display:block;color:var(--blue-deep);font-size:.95rem}
 .ddmenu a small{display:block;color:var(--muted);font-weight:500;font-size:.8rem;margin-top:2px}
-@media (max-width:1040px){
+@media (max-width:1160px){
   .ddbtn{width:100%;justify-content:space-between;border-radius:10px;font-size:1rem;padding:10px 11px}
   .ddmenu{position:static;transform:none!important;opacity:1;visibility:visible;box-shadow:none;border:0;padding:0 0 4px 10px;min-width:0;display:none}
   .ddmenu::before,.ddmenu::after{display:none}
   .dd.open .ddmenu{display:block}
   .ddmenu a small{display:none}
+}
+@media (min-width:1161px){
+  nav.main{flex:1;margin-left:clamp(20px,4vw,72px);justify-content:space-between}
+  nav.main>a:not(.cta),nav.main .ddbtn{font-size:1.02rem;padding:11px 16px}
+  nav.main{gap:8px}
 }
 </style>
 </head>
@@ -292,11 +297,12 @@ nav.main .ddmenu a{display:block;white-space:normal;border-radius:10px;padding:9
         <a href="#why"><b>Why us</b><small>The problem, our answer, learn as you earn</small></a>
         <a href="#how"><b>How it works</b><small>From registration to assessment</small></a>
       </div></div>
-      <div class="dd"><button type="button" class="ddbtn" aria-expanded="false">Learn<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3"/></svg></button><div class="ddmenu">
-        <a href="#classes"><b>Live classes</b><small>Join with your registration number</small></a>
-        <a href="#module1"><b>Modules</b><small>Core Module 1 and quiz</small></a>
-        <a href="#library"><b>Library</b><small>Videos and all modules</small></a>
+      <div class="dd"><button type="button" class="ddbtn" aria-expanded="false">Modules<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3"/></svg></button><div class="ddmenu">
+        <a href="#module1"><b>Core Module 1</b><small>How competence-based training works, with a quiz</small></a>
+        <a href="#library"><b>Library</b><small>Class videos and all modules by trade</small></a>
       </div></div>
+      <a href="#classes">Live classes</a>
+      <a href="https://thehasaholdings.com/" class="tohasa">THEHASA Holdings</a>
       <a class="cta" href="#register">Register</a>
     </nav>
   </div>

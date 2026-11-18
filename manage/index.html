@@ -70,6 +70,10 @@ header.site .wrap{display:flex;align-items:center;gap:16px;min-height:84px}
 @media (max-width:520px){.logo .compact{gap:8px}.logo .compact img{height:30px}.logo .compact b{font-size:1.05rem}.logo .compact small{font-size:.68rem}}
 nav.main{margin-left:auto;display:flex;gap:2px;flex-wrap:nowrap}
 .cta-desktop{white-space:nowrap}
+.carctas{display:inline-flex;gap:8px;margin-left:6px}
+.navcars{display:none}
+@media (max-width:1100px){.navcars{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;padding-top:12px;border-top:1px solid var(--line)}.navcars .btn{width:100%;justify-content:center;text-align:center}nav.main .navcars a.btn{color:#fff;font-weight:700;font-size:1rem;padding:12px;border-radius:12px}nav.main .navcars a.btn.red{background:var(--red-deep,#C8151C)}}
+
 nav.main a{text-decoration:none;color:var(--ink);padding:8px 7px;border-radius:6px;font-weight:500;font-size:.9rem;white-space:nowrap}
 nav.main a:hover{color:var(--brand-text)}
 nav.main a[aria-current="page"]{background:var(--tint);color:var(--brand-text)}
@@ -823,8 +827,9 @@ footer.site .social svg{width:16px;height:16px;flex:none}
         <a href="/invest"><b>Invest with us</b><small>For investors and partners</small></a>
       </div></div>
       <a href="/contact">Contact</a>
+      <span class="navcars"><a class="btn red" href="/hire">Hire a car</a><a class="btn" href="/request" data-buy="1">Buy a car</a></span>
     </nav>
-    <a class="btn red small cta-desktop" href="/request" data-choose="request">Request a car</a>
+    <span class="carctas cta-desktop"><a class="btn red small" href="/hire">Hire a car</a><a class="btn small" href="/request" data-buy="1">Buy a car</a></span>
   </div>
 </header>
 
@@ -840,7 +845,8 @@ footer.site .social svg{width:16px;height:16px;flex:none}
       <h1 class="display"><span class="line"><span class="rise" style="--d:1">Cars, supplies, produce,</span></span> <span class="line"><span class="rise" style="--d:2">property, building and skills,</span></span> <span class="line"><span class="rise grad-text" style="--d:3">handled properly.</span></span></h1>
       <p class="sub rise" style="--d:4">THEHASA Holdings Company Limited is a social enterprise: a diversified holding company founded in Kikuube District and working across Uganda, with operations in Kampala, Hoima and Kikuube.</p>
       <div class="ctas rise" style="--d:5">
-        <a class="btn red" href="/request" data-choose="request">Request a car</a>
+        <a class="btn red" href="/hire">Hire a car</a>
+        <a class="btn" href="/request" data-buy="1">Buy a car</a>
         <a class="textlink" href="#businesses">Explore our businesses <span aria-hidden="true">&#8250;</span></a>
       </div>
       <nav class="quick rise" style="--d:6" aria-label="Our five businesses">
@@ -1003,7 +1009,7 @@ footer.site .social svg{width:16px;height:16px;flex:none}
           <li><div><b>Clearance and registration.</b> For Ugandan plates, the Uganda Revenue Authority (URA) assesses the taxes, and the car is cleared and registered with URA. For DRC plates, the car is declared and cleared with the DGDA at the Goli and Mahagi border, and registered with the DGI, which issues the plates.</div></li>
           <li><div><b>Delivery.</b> We hand over the car and all papers, in Uganda or in the DRC. Your written quote tells you the expected delivery time.</div></li>
         </ol>
-        <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap"><a class="btn red" href="/request" data-choose="request">Request a car</a></div>
+        <div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap"><a class="btn red" href="/hire">Hire a car</a><a class="btn" href="/request" data-buy="1">Buy a car</a></div>
       </div>
       <div class="grid" style="gap:14px">
         <div class="panel">
@@ -1981,6 +1987,21 @@ footer.site .social svg{width:16px;height:16px;flex:none}
 
 <a class="wa" href="https://wa.me/256789372627" aria-label="WhatsApp us on +256 789 372 627">WhatsApp us</a>
 
+<div class="modal" id="buyModal" role="dialog" aria-modal="true" aria-labelledby="buyTitle">
+  <div class="box chooser">
+    <h3 id="buyTitle">Buy a car from Japan</h3>
+    <p class="hint" style="margin-top:0">Choose a car on one of these two exporters' websites. Copy its link, then send it to us and we handle the rest.</p>
+    <div class="choices">
+      <a class="choice" href="https://autocj.co.jp/" target="_blank" rel="noopener"><b>Autocom Japan</b><span>Browse cars on autocj.co.jp</span></a>
+      <a class="choice" href="https://www.beforward.jp/beforward_uganda" target="_blank" rel="noopener"><b>BE FORWARD</b><span>Browse cars on beforward.jp, Uganda stock list</span></a>
+    </div>
+    <div class="choices" style="grid-template-columns:1fr">
+      <a class="choice" href="/request" data-buyclose="1"><b>I have chosen a car</b><span>Send us its link or describe it. We reply with a written quote.</span></a>
+    </div>
+    <p class="hint" style="margin-top:0">Prefer help choosing? <a href="/mobility" data-buyclose="1">Visit our office and choose with us</a>.</p>
+    <button class="btn alt small" id="buyClose" type="button">Close</button>
+  </div>
+</div>
 <div class="modal" id="chooseModal" role="dialog" aria-modal="true" aria-labelledby="chooseTitle">
   <div class="box chooser">
     <h3 id="chooseTitle">How would you like to request a car?</h3>
@@ -2993,6 +3014,21 @@ r.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTo
   }, 3500);
   var target = document.getElementById('listings');
   if (target) { new MutationObserver(function(){ bind(target); }).observe(target, {childList:true}); bind(target); }
+})();
+</script>
+
+<script>
+(function(){
+  var m = document.getElementById('buyModal');
+  function close(){ m.classList.remove('open'); }
+  document.querySelectorAll('[data-buy]').forEach(function(a){ a.addEventListener('click', function(e){
+    e.preventDefault(); var nav = document.getElementById('mainNav'); if (nav) { nav.classList.remove('open'); }
+    m.classList.add('open'); var c = m.querySelector('.choice'); if (c) { c.focus(); }
+  }); });
+  m.querySelectorAll('[data-buyclose], .choice[target]').forEach(function(a){ a.addEventListener('click', close); });
+  document.getElementById('buyClose').addEventListener('click', close);
+  m.addEventListener('click', function(e){ if (e.target === m) { close(); } });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') { close(); } });
 })();
 </script>
 </body>
