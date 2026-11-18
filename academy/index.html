@@ -771,7 +771,7 @@ var WA = '256789372627';
   function table(el, rows, cols){ el.innerHTML = '<thead><tr>' + cols.map(function(c){ return '<th>' + esc(c) + '</th>'; }).join('') + '</tr></thead><tbody>' + (rows.length ? rows.map(function(r){ return '<tr>' + cols.map(function(c){ var v = r[c]; if (c === 'Status') { v = '<span class="pill ' + (v === 'Verified' ? 'ok' : v === 'Not approved' ? 'no' : '') + '">' + esc(v || 'Pending') + '</span>'; } else { v = esc(v); } return '<td>' + v + '</td>'; }).join('') + '</tr>'; }).join('') : '<tr><td colspan="' + cols.length + '">No records yet.</td></tr>') + '</tbody>'; }
   function openStaff(pin){
     fetch(API_URL + '?action=staff&pin=' + encodeURIComponent(pin)).then(function(r){ return r.json(); }).then(function(d){
-      if (!d.ok) { document.getElementById('pinErr').hidden = false; return; }
+      if (!d.ok) { var er = document.getElementById('pinErr'); er.textContent = d.locked ? 'Too many wrong tries. Wait 15 minutes, then try again.' : 'That PIN did not work. Try again.'; er.hidden = false; try { sessionStorage.removeItem('dmamPin'); } catch (x) {} return; }
       try { sessionStorage.setItem('dmamPin', pin); } catch (x) {}
       document.getElementById('pinForm').hidden = true; document.getElementById('staffBox').hidden = false;
       var A = d.artisans || [], T = d.attendance || [], R = d.quiz || [];
@@ -781,7 +781,7 @@ var WA = '256789372627';
       table(document.getElementById('tArt'), A, ['Ref','Received','Full name','Phone','Trade','District','Location','Years of experience','Gender','Status']);
       table(document.getElementById('tAtt'), T, ['Received','Ref','Class']);
       table(document.getElementById('tQuiz'), R, ['Received','Ref','Module','Score','Percent','Passed']);
-    }).catch(function(){ document.getElementById('pinErr').hidden = false; });
+    }).catch(function(){ var er = document.getElementById('pinErr'); er.textContent = 'No connection. Check the internet and try again.'; er.hidden = false; });
   }
   document.getElementById('pinForm').addEventListener('submit', function(e){ e.preventDefault(); document.getElementById('pinErr').hidden = true; if (!API_URL) { document.getElementById('pinErr').textContent = 'Staff records open once the Academy is linked to the company Google account.'; document.getElementById('pinErr').hidden = false; return; } openStaff(document.getElementById('pin').value); document.getElementById('pin').value = ''; });
   document.getElementById('lockBtn').addEventListener('click', function(){ try { sessionStorage.removeItem('dmamPin'); } catch (x) {} document.getElementById('staffBox').hidden = true; document.getElementById('pinForm').hidden = false; });
