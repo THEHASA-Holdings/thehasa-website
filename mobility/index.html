@@ -2171,8 +2171,11 @@ window.addEventListener('load',function(){setTimeout(function(){document.querySe
   var SOLD_DAYS = 7, DAY = 86400000;
   var mstate = {};
   function saveState(){}
-  fetch('market.json', {cache:'no-cache'}).then(function(r){ return r.ok ? r.json() : []; }).then(function(d){
-    store.live = (Array.isArray(d) ? d : []).filter(function(l){ return l && l.ref && l.name; });
+  var fromFile = fetch('market.json', {cache:'no-cache'}).then(function(r){ return r.ok ? r.json() : []; }).catch(function(){ return []; });
+  var fromSheet = MARKET_ADMIN_URL ? fetch(MARKET_ADMIN_URL + '?action=listings').then(function(r){ return r.json(); }).catch(function(){ return []; }) : Promise.resolve([]);
+  Promise.all([fromSheet, fromFile]).then(function(both){
+    var d = (Array.isArray(both[0]) ? both[0] : []).concat(Array.isArray(both[1]) ? both[1] : []);
+    store.live = d.filter(function(l){ return l && l.ref && l.name; });
     store.live.forEach(function(l){ mstate[l.ref] = {enq: l.enquiries || 0, status: l.status === 'sold' ? 'sold' : (l.status === 'removed' ? 'removed' : 'available'), soldAt: l.soldDate ? Date.parse(l.soldDate) : 0, log: []}; });
     renderMarket(); if (window.thehasaManagerRender) { window.thehasaManagerRender(); }
   }).catch(function(){});
@@ -2764,6 +2767,10 @@ r.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTo
     return '<div class="mgreq"><h3 style="margin:0 0 2px">' + esc(rec.kind) + '</h3><p class="hint" style="margin:0 0 8px"><span>Ref</span> ' + esc(rec.ref) + (when ? ' &middot; ' + esc(when) : '') + '</p>' +
       '<table class="mgtable">' + rows + '</table>' +
       '<div class="mgbtns"><button class="btn alt" type="button" data-pdf="1">Open the PDF</button>' + (rec.pdf ? '<a class="btn alt" href="' + esc(rec.pdf) + '" target="_blank" rel="noopener">PDF in Drive</a>' : '') + '</div>' +
+      (rec.kind === 'Market listing request' ? '<div class="mgapprove"><p style="margin:14px 0 6px"><b>Status:</b> ' + esc(rec.status || 'New') + '</p>' +
+        (/^(approved|discarded)/i.test(rec.status || '') ? '' : '<p class="hint" style="margin:0 0 8px">Before approving: call the owner, check ownership and ID, agree the terms, and check that no photo shows a number plate, plot number or phone number.</p>' +
+        '<div class="mgbtns"><button class="btn" type="button" data-approve="' + esc(rec.ref) + '">Approve and publish</button><button class="btn alt" type="button" data-discard="' + esc(rec.ref) + '">Discard</button></div>') +
+        '<p class="hint" data-mgmsg style="margin:8px 0 0"></p></div>' : '') +
       (lref ? '<p style="margin:14px 0 6px"><b>The listing they asked about</b></p>' + listingCard(lref) : '') + '</div>';
   }
   function wire(rec){
@@ -2773,6 +2780,21 @@ r.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTo
       setTimeout(function(){ var el = document.getElementById('item-' + ref); if (el) { el.scrollIntoView({behavior:'smooth', block:'center'}); el.classList.add('flash'); setTimeout(function(){ el.classList.remove('flash'); }, 2600); } }, 350);
     }); });
     var p = out.querySelector('[data-pdf]'); if (p && rec) { p.addEventListener('click', function(){ window.thehasaShowRecord(rec); }); }
+    out.querySelectorAll('[data-approve],[data-discard]').forEach(function(b){
+      var isA = b.hasAttribute('data-approve'), label = b.textContent, armed = false;
+      b.addEventListener('click', function(){
+        var msg = out.querySelector('[data-mgmsg]');
+        if (!armed) { armed = true; b.textContent = isA ? 'Tap again to publish' : 'Tap again to discard'; setTimeout(function(){ armed = false; b.textContent = label; }, 5000); return; }
+        var pin = ''; try { pin = sessionStorage.getItem('thehasaPin') || ''; } catch (e) {}
+        out.querySelectorAll('[data-approve],[data-discard]').forEach(function(x){ x.disabled = true; });
+        msg.textContent = 'Working...';
+        fetch(FIND_URL, {method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify({action: isA ? 'approve' : 'discard', ref: b.getAttribute(isA ? 'data-approve' : 'data-discard'), pin: pin})})
+          .then(function(r){ return r.json(); }).then(function(j){
+            if (j && j.ok) { msg.innerHTML = isA ? '<b>Published as ' + esc(j.listing) + '.</b> It shows in the Market within a minute. Use this reference to mark it sold or remove it.' : '<b>Discarded.</b> The photos were deleted and nothing appears in the Market.'; out.querySelectorAll('[data-approve],[data-discard]').forEach(function(x){ x.remove(); }); }
+            else { msg.textContent = (j && j.error === 'PIN') ? 'Your sign-in has expired. Press Lock, open again with your PIN, and retry.' : ((j && j.error) || 'That did not work. Try again.'); out.querySelectorAll('[data-approve],[data-discard]').forEach(function(x){ x.disabled = false; }); }
+          }).catch(function(){ msg.textContent = 'No connection. Try again.'; out.querySelectorAll('[data-approve],[data-discard]').forEach(function(x){ x.disabled = false; }); });
+      });
+    });
   }
   function find(q){
     var m = String(q || '').toUpperCase().match(/TH[MC]-[0-9]+(?:-[0-9]+)?/);
