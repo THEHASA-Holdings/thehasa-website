@@ -6,7 +6,8 @@
 <meta name="theme-color" content="#0F75BC">
 <title>Digital Master Artisan Model Academy | THEHASA Holdings Company Limited</title>
 <meta name="description" content="The Digital Master Artisan Model Academy prepares experienced artisans to train young people in their own businesses, with THEHASA Holdings Company Limited coordinating quality and assessment.">
-<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAwFBMVEX+/v4QdbzxHSUPecPuIyrM4vFZoNHz6exDk8oohMI5jsfH3+/1Vlz6xcf72NnxNDzzZWr4qaz1dXoRgM31PkX1O0LwREr3hIn2k5f4mZz4naH6ubw/kcm92ezxW2L2jZH6vsD83+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMYp6EAAAAQHRSTlP+/f7+9tTH5dPm2dLOztvmx8PC/9/h2sC/wMDJ1szLv8vgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATAjNSwAAAPhJREFUeNrtk9kSgjAMACFNRbHlEkXA8/9/UppyDCog4GP2pSlDtgkNjsMwDMP8E7eH2LJghUAQB3+xYGvZyH2FlHKmQOzqraRC3MN4K543KNgLu9+MZGdHxDB5DlUwJQhSIFDPEpQqVTFFJ0DKB/R+EZQPWmI6tKAI6wog+kGQACRmDc2JgFV0awRA2ykBIJrXvDopMB10WAFd25BAgS0U6VzTterybQXScr34xM7tf4O8oOVMGRlFbQtRf6DsLAv3+y3kRwzvNAVhewtBbzrefqrPOWiGTzcVxM48QTdJUaVApZ2lguplrYOPZ3MEX6VrBQzDMMxqXpqkCTw7HRi3AAAAAElFTkSuQmCC">
+<link rel="icon" type="image/svg+xml" href="img/dmam-mark.svg">
+<link rel="apple-touch-icon" href="img/icon-192.png">
 <link rel="manifest" href="manifest.json">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,8 +44,8 @@ nav.main a:hover,nav.main a[aria-current="page"]{background:linear-gradient(135d
 nav.main a.cta{background:var(--red-deep);color:#fff;margin-left:6px}
 nav.main a.cta:hover{background:#A51016;color:#fff}
 .menu{display:none;margin-left:auto;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;font:700 1rem var(--font);color:var(--ink)}
-@media (max-width:1600px){nav.main a{padding:10px 10px;font-size:.94rem}}
-@media (max-width:1440px){
+nav.main a{padding:10px 11px;font-size:.95rem}
+@media (max-width:1040px){
   .menu{display:block}
   nav.main{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;align-items:stretch;background:#fff;border-bottom:1px solid var(--line);padding:10px 20px 18px;box-shadow:0 20px 30px -20px rgba(10,79,128,.3)}
   nav.main.open{display:flex}
@@ -221,25 +222,82 @@ body::after{right:0;background:linear-gradient(270deg,rgba(237,28,36,.075),rgba(
 footer.site .copy{color:#C9D6E2}
 main,footer.site{position:relative;z-index:1}
 header.site{z-index:20}
+/* Academy logo */
+.badge svg{width:54px;height:54px;display:block}
+.bname b{font-size:1.45rem;letter-spacing:.02em}.bname b i{font-style:normal;color:#C8151C}
+.bname small{font-size:.74rem;letter-spacing:.03em}
+.bname em{font-size:.7rem}
+@media (max-width:520px){.badge svg{width:40px;height:40px}.bname b{font-size:1.12rem}.bname small{font-size:.6rem}.bname em{font-size:.56rem}}
+@media (max-width:360px){.badge svg{width:32px;height:32px}.bname b{font-size:.98rem}.bname small{font-size:.52rem}.bname em{font-size:.5rem}}
+footer.site .owner{display:flex;gap:16px;align-items:center;margin-bottom:14px}
+footer.site .owner img{width:150px;height:auto;background:#fff;border-radius:12px;padding:8px}
+header.site .wrap{max-width:1360px}
+/* Stacked, centred Academy logo */
+header.site .wrap{min-height:124px}
+.badge{width:96px;height:96px}.badge svg{width:66px;height:66px}
+.bname.stack{text-align:center;display:flex;flex-direction:column;align-items:center}
+.bname.stack b{font-size:1.75rem;line-height:1;letter-spacing:.08em;color:#0F75BC}
+.bname.stack b.acad{color:#C8151C;margin-top:2px}
+.bname.stack small{font-size:.66rem;letter-spacing:.06em;margin:3px 0 1px;white-space:nowrap}
+.bname.stack em{font-size:.74rem;line-height:1.3;white-space:normal;margin-top:5px;padding-top:3px;border-top:2px solid var(--red);align-self:stretch;text-align:center}
+@media (max-width:520px){header.site .wrap{min-height:96px}.badge{width:68px;height:68px}.badge svg{width:46px;height:46px}.bname.stack b{font-size:1.25rem}.bname.stack small{font-size:.5rem}.bname.stack em{font-size:.58rem}}
+@media (max-width:360px){.badge{width:54px;height:54px}.badge svg{width:36px;height:36px}.bname.stack b{font-size:1.05rem}.bname.stack small{font-size:.43rem}.bname.stack em{font-size:.5rem}}
+
+/* dropdowns: open on tap or hover, close as soon as a page is chosen */
+.dd{position:relative}
+.ddbtn{display:inline-flex;align-items:center;gap:6px;background:none;border:0;font:600 .95rem var(--font);color:var(--ink);padding:10px 11px;border-radius:999px;cursor:pointer;white-space:nowrap}
+.ddbtn svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:1.8;transition:transform .2s}
+.ddbtn:hover,.dd.open .ddbtn,.dd:has(a[aria-current="page"]) .ddbtn{background:linear-gradient(135deg,rgba(15,117,188,.12),rgba(237,28,36,.08));color:var(--blue-deep)}
+.dd.open .ddbtn svg{transform:rotate(180deg)}
+.ddmenu{position:absolute;top:calc(100% + 10px);left:50%;transform:translate(-50%,6px);min-width:280px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:8px;box-shadow:0 24px 50px -20px rgba(10,79,128,.35);opacity:0;visibility:hidden;transition:opacity .18s,transform .18s,visibility .18s;z-index:30}
+.ddmenu::before{content:"";position:absolute;left:0;right:0;top:-12px;height:12px}
+.ddmenu::after{content:"";position:absolute;left:20px;right:20px;top:-1px;height:3px;border-radius:0 0 3px 3px;background:linear-gradient(90deg,#0F75BC,#ED1C24)}
+.dd.open .ddmenu{opacity:1;visibility:visible;transform:translate(-50%,0)}
+@media (hover:hover) and (min-width:1041px){.dd:hover .ddmenu{opacity:1;visibility:visible;transform:translate(-50%,0)}.dd:hover .ddbtn svg{transform:rotate(180deg)}}
+.dd.shut .ddmenu{opacity:0!important;visibility:hidden!important;pointer-events:none}.dd.shut .ddbtn svg{transform:none!important}
+nav.main .ddmenu a{display:block;white-space:normal;border-radius:10px;padding:9px 12px}
+.ddmenu a b{display:block;color:var(--blue-deep);font-size:.95rem}
+.ddmenu a small{display:block;color:var(--muted);font-weight:500;font-size:.8rem;margin-top:2px}
+@media (max-width:1040px){
+  .ddbtn{width:100%;justify-content:space-between;border-radius:10px;font-size:1rem;padding:10px 11px}
+  .ddmenu{position:static;transform:none!important;opacity:1;visibility:visible;box-shadow:none;border:0;padding:0 0 4px 10px;min-width:0;display:none}
+  .ddmenu::before,.ddmenu::after{display:none}
+  .dd.open .ddmenu{display:block}
+  .ddmenu a small{display:none}
+}
 </style>
 </head>
 <body>
 <header class="site">
   <div class="wrap">
     <a class="brand" href="#home" aria-label="Digital Master Artisan Model Academy, home">
-      <span class="badge"><img src="img/logo-mark.png" alt="" width="79" height="30"></span>
-      <span class="bname"><b>THEHASA</b><small>HOLDINGS COMPANY LIMITED</small><em>Living in the Moment, Investing in Tomorrow.</em></span>
+      <span class="badge"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true">
+  <defs>
+    <linearGradient id="dg" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0F75BC"/><stop offset=".55" stop-color="#0F75BC"/><stop offset="1" stop-color="#ED1C24"/>
+    </linearGradient>
+  </defs>
+  <path d="M10 27 L32 12 L54 27" fill="none" stroke="url(#dg)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M12 33 Q22 29 31 34 V54 Q22 49 12 52 Z" fill="#0F75BC"/>
+  <path d="M33 34 Q42 29 52 33 V52 Q42 49 33 54 Z" fill="url(#dg)"/>
+  <circle cx="32" cy="24.5" r="4" fill="#ED1C24"/>
+</svg>
+</span>
+      <span class="bname stack"><b>D-MAM</b><small>DIGITAL MASTER ARTISAN MODEL</small><b class="acad">ACADEMY</b><em>Every artisan a teacher,<br>every learner an earner.</em></span>
     </a>
     <button class="menu" id="menuBtn" aria-expanded="false" aria-controls="nav">Menu</button>
     <nav class="main" id="nav" aria-label="Main">
       <a href="#home">Academy</a>
-      <a href="#why">Why the Academy</a>
-      <a href="#how">How it works</a>
-      <a href="#classes">Live classes</a>
-      <a href="#module1">Modules</a>
-      <a href="#library">Library</a>
-      <a href="https://thehasaholdings.com">THEHASA website</a>
-      <a class="cta" href="#register">Register as an artisan</a>
+      <div class="dd"><button type="button" class="ddbtn" aria-expanded="false">About<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3"/></svg></button><div class="ddmenu">
+        <a href="#why"><b>Why us</b><small>The problem, our answer, learn as you earn</small></a>
+        <a href="#how"><b>How it works</b><small>From registration to assessment</small></a>
+      </div></div>
+      <div class="dd"><button type="button" class="ddbtn" aria-expanded="false">Learn<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3"/></svg></button><div class="ddmenu">
+        <a href="#classes"><b>Live classes</b><small>Join with your registration number</small></a>
+        <a href="#module1"><b>Modules</b><small>Core Module 1 and quiz</small></a>
+        <a href="#library"><b>Library</b><small>Videos and all modules</small></a>
+      </div></div>
+      <a class="cta" href="#register">Register</a>
     </nav>
   </div>
 </header>
@@ -550,7 +608,7 @@ header.site{z-index:20}
 
 <footer class="site">
   <div class="wrap cols">
-    <div><h4>Digital Master Artisan Model Academy</h4><p>Run by THEHASA Holdings Company Limited, Reg. No. 80020002846819.</p><p>Registered office: Block 30, Kasonga Village, Kyangwali Refugee Settlement, Kikuube District, Uganda.</p></div>
+    <div><div class="owner"><a href="https://thehasaholdings.com" aria-label="THEHASA Holdings Company Limited website"><img src="img/logo-full.png" alt="THEHASA Holdings Company Limited" width="150" height="89" loading="lazy"></a></div><h4>Digital Master Artisan Model Academy</h4><p>An academy of THEHASA Holdings Company Limited, Reg. No. 80020002846819.</p><p>Registered office: Block 30, Kasonga Village, Kyangwali Refugee Settlement, Kikuube District, Uganda.</p></div>
     <div><h4>Contact</h4><p><a href="tel:+256789372627">+256 789 372 627</a></p><p><a href="https://wa.me/256789372627">WhatsApp us</a></p><p><a href="mailto:thehasaholdings@gmail.com">thehasaholdings@gmail.com</a></p></div>
     <div><h4>Links</h4><p><a href="https://thehasaholdings.com">thehasaholdings.com</a></p><p><a href="https://thehasaholdings.com/tvet">TVET Services</a></p><p><a href="https://thehasaholdings.com/privacy">Privacy and Terms</a></p></div>
   </div>
@@ -562,7 +620,7 @@ header.site{z-index:20}
   <p>Your registration number:</p>
   <p class="refno" id="doneRef"></p>
   <p id="doneMsg">Keep this number. THEHASA will call you within a few days to verify your business. You will use this number to join classes and take quizzes.</p>
-  <div class="ctas" style="margin-top:12px"><a class="btn" id="doneWa" target="_blank" rel="noopener" href="#">Save it on WhatsApp</a><a class="btn alt" id="doneMail" href="#">Send by email</a><button class="btn alt" type="button" id="doneClose">Close</button></div>
+  <div class="ctas" style="margin-top:12px"><a class="btn" id="doneWa" target="_blank" rel="noopener" href="#">Save it on WhatsApp</a><a class="btn alt" id="doneMail" href="#" target="_blank" rel="noopener">Send by Gmail</a><button class="btn alt" type="button" id="doneClose">Close</button></div>
 </div></div>
 <div class="offline" id="offline">You are offline. Anything you send is saved and goes when you reconnect.</div>
 
@@ -570,7 +628,7 @@ header.site{z-index:20}
 /* ================= Settings =================
    API_URL: the web app address of the Academy Google Apps Script (Deploy > Web app).
    Until it is set, registrations are kept on the device and the person sends them to THEHASA on WhatsApp. */
-var API_URL = '';
+var API_URL = 'https://script.google.com/macros/s/AKfycbxp1nrWtQ7mICCJe17Ln-DGRda4v_hIX1JhCjGc4gdlqHVU_TF8xG0OfrKF6yFzXCQK/exec';
 var WA = '256789372627';
 </script>
 <script>
@@ -589,6 +647,19 @@ var WA = '256789372627';
   document.querySelectorAll('a[data-local]').forEach(function(a){ a.addEventListener('click', function(e){ e.preventDefault(); var t = document.getElementById(a.getAttribute('href').slice(1)); if (t) { window.scrollTo({top: t.getBoundingClientRect().top + window.scrollY - 130, behavior:'smooth'}); } }); });
   var mb = document.getElementById('menuBtn');
   mb.addEventListener('click', function(){ var n = document.getElementById('nav'); var o = n.classList.toggle('open'); mb.setAttribute('aria-expanded', o ? 'true' : 'false'); });
+  /* dropdowns */
+  var dds = document.querySelectorAll('nav.main .dd');
+  function closeDD(except){ dds.forEach(function(d){ if (d !== except) { d.classList.remove('open'); d.querySelector('.ddbtn').setAttribute('aria-expanded','false'); } }); }
+  dds.forEach(function(d){
+    var b = d.querySelector('.ddbtn');
+    b.addEventListener('click', function(e){ e.stopPropagation(); d.classList.remove('shut'); var o = !d.classList.contains('open'); closeDD(d); d.classList.toggle('open', o); b.setAttribute('aria-expanded', o ? 'true' : 'false'); });
+    d.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ closeDD(); d.classList.add('shut'); setTimeout(function(){ if (document.activeElement && d.contains(document.activeElement)) { document.activeElement.blur(); } }, 0); }); });
+    b.addEventListener('pointermove', function(){ d.classList.remove('shut'); });
+  });
+  document.addEventListener('click', function(e){ if (!e.target.closest('nav.main .dd')) { closeDD(); } var n = document.getElementById('nav'); if (n.classList.contains('open') && !n.contains(e.target) && !mb.contains(e.target)) { n.classList.remove('open'); mb.setAttribute('aria-expanded','false'); } });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') { closeDD(); document.getElementById('nav').classList.remove('open'); } });
+  window.addEventListener('hashchange', function(){ closeDD(); });
+
 
   /* ---------- sending with an offline queue ---------- */
   var QKEY = 'dmamQueue';
@@ -642,7 +713,7 @@ var WA = '256789372627';
       Object.keys(data).forEach(function(k){ if (data[k]) { lines.push(k + ': ' + data[k]); } });
       document.getElementById('doneWa').href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(lines.join('\n'));
       var sent = API_URL && !(res && res.queued); document.getElementById('doneMail').hidden = !!sent;
-      document.getElementById('doneMail').href = 'mailto:thehasaholdings@gmail.com?subject=' + encodeURIComponent('D-MAM Academy registration ' + r) + '&body=' + encodeURIComponent(lines.join('\n'));
+      document.getElementById('doneMail').href = 'https://mail.google.com/mail/?view=cm&fs=1&to=thehasaholdings@gmail.com&su=' + encodeURIComponent('D-MAM Academy registration ' + r) + '&body=' + encodeURIComponent(lines.join('\n'));
       document.getElementById('doneWa').textContent = API_URL && !(res && res.queued) ? 'Save it on WhatsApp' : 'Send it to THEHASA on WhatsApp';
       document.getElementById('doneMsg').textContent = (API_URL && !(res && res.queued)) ? 'Keep this number. THEHASA will call you within a few days to verify your business. You will use this number to join classes and take quizzes.' : 'Keep this number. Your registration is saved on this phone. Send it to THEHASA now on WhatsApp or by email.';
       document.getElementById('done').classList.add('open');

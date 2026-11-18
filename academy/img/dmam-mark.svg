@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="D-MAM Academy">
+  <defs>
+    <linearGradient id="dg" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0F75BC"/><stop offset=".55" stop-color="#0F75BC"/><stop offset="1" stop-color="#ED1C24"/>
+    </linearGradient>
+  </defs>
+  <path d="M10 27 L32 12 L54 27" fill="none" stroke="url(#dg)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M12 33 Q22 29 31 34 V54 Q22 49 12 52 Z" fill="#0F75BC"/>
+  <path d="M33 34 Q42 29 52 33 V52 Q42 49 33 54 Z" fill="url(#dg)"/>
+  <circle cx="32" cy="24.5" r="4" fill="#ED1C24"/>
+</svg>
