@@ -413,7 +413,7 @@ nav.main .ddmenu a{display:block;white-space:normal;border-radius:10px;padding:9
     <ol class="steps">
       <li><div><b>Register</b><span>Fill in the online form with your trade, experience, business and photos of your work. You get a reference number straight away.</span></div></li>
       <li><div><b>Verification</b><span>THEHASA calls you, checks your business and your work, and confirms your place. Your Master Artisan Digital Passport is opened.</span></div></li>
-      <li><div><b>Preparation</b><span>You join live classes on Zoom or Google Meet and work through the modules on your phone. Each module ends with a short quiz.</span></div></li>
+      <li><div><b>Preparation</b><span>You join live classes on Google Meet and work through the modules on your phone. Each module ends with a short quiz.</span></div></li>
       <li><div><b>Training learners</b><span>When a partner programme starts, learners are placed with you. You train them in your business, one module at a time, and record attendance and progress. As they master each task, you engage them in paid customer work, so they learn as they earn.</span></div></li>
       <li><div><b>Supervision</b><span>THEHASA supervisors follow progress through the records, coach you by phone or video, and visit your workplace in person.</span></div></li>
       <li><div><b>Assessment and next steps</b><span>THEHASA registers ready learners for national assessment with UVTAB through an approved centre, and supports graduates into work or their own business.</span></div></li>
@@ -496,7 +496,7 @@ nav.main .ddmenu a{display:block;white-space:normal;border-radius:10px;padding:9
   <div class="wrap" style="max-width:900px">
     <p class="eyebrow">Live classes</p>
     <h1>Join a <span class="grad">live class.</span></h1>
-    <p class="lead">Classes run on Zoom or Google Meet. Enter your registration number to join: it records your attendance, then opens the class.</p>
+    <p class="lead">Classes run on Google Meet. Enter your registration number to join: it records your attendance, then opens the class.</p>
     <div id="classList"><p class="note">Loading classes…</p></div>
     <p class="note" style="margin-top:20px">Missed a class or have weak internet? Every class is posted on our <a href="https://www.youtube.com/@Thehasa-UG" target="_blank" rel="noopener">YouTube channel</a>, so you can watch later or download it in the YouTube app.</p>
   </div>
@@ -736,7 +736,7 @@ var WA = '256789372627';
     var now = Date.now(), up = (d.classes || []).filter(function(c){ return Date.parse(c.start) + (c.minutes || 60) * 60000 > now; });
     var box = document.getElementById('classList');
     if (!up.length) { box.innerHTML = '<p class="note">The next class dates will appear here shortly. Register and we will send you the date on WhatsApp.</p>'; }
-    else { box.innerHTML = up.map(function(c, i){ var dt = new Date(c.start); return '<div class="class"><div class="date"><b>' + dt.getDate() + '</b><small>' + dt.toLocaleString('en-GB',{month:'short'}) + '</small></div><div><h3>' + esc(c.title) + '</h3><p>' + esc(fmt(c.start)) + ' (Uganda time), about ' + (c.minutes || 60) + ' minutes, on ' + esc(c.platform || 'Zoom') + '</p>' + (c.note ? '<p>' + esc(c.note) + '</p>' : '') + '</div><button class="btn red" type="button" data-i="' + i + '">Join class</button></div>'; }).join('');
+    else { box.innerHTML = up.map(function(c, i){ var dt = new Date(c.start); return '<div class="class"><div class="date"><b>' + dt.getDate() + '</b><small>' + dt.toLocaleString('en-GB',{month:'short'}) + '</small></div><div><h3>' + esc(c.title) + '</h3><p>' + esc(fmt(c.start)) + ' (Uganda time), about ' + (c.minutes || 60) + ' minutes, on ' + esc(c.platform || 'Google Meet') + '</p>' + (c.note ? '<p>' + esc(c.note) + '</p>' : '') + '</div><button class="btn red" type="button" data-i="' + i + '">Join class</button></div>'; }).join('');
       box.querySelectorAll('[data-i]').forEach(function(b){ b.addEventListener('click', function(){ var c = up[+b.dataset.i], m = me(); var r = prompt('Enter your registration number to join', m ? m.ref : ''); if (!r) { return; } r = r.trim().toUpperCase();
           var win = window.open('', '_blank');
           if (API_URL) {

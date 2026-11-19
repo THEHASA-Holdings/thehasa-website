@@ -1,0 +1,11 @@
+Copyright (c) 2026 THEHASA Holdings Company Limited. All rights reserved.
+
+This website (its design, code, text, photographs, logos and other content) is the property of
+THEHASA Holdings Company Limited, Kikuube District, Uganda. Website design and development
+masterminded by Sumi Hamid.
+
+The code is published here only so that GitHub Pages can serve thehasaholdings.com.
+No licence is granted. You may not copy, reuse, modify, distribute or publish any part of this
+website, in whole or in part, without written permission from THEHASA Holdings Company Limited.
+
+Contact: thehasaholdings@gmail.com

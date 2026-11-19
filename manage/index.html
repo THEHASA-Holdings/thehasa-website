@@ -287,6 +287,7 @@ h2.big{font-size:clamp(2rem,4.6vw,3.3rem);font-weight:800;letter-spacing:-.03em;
 .callnow .btn{font-size:1.2rem;padding:14px 28px}
 .duo{display:inline-flex;gap:18px;flex-wrap:wrap;justify-content:center}
 
+#buyModal,#chooseModal{overflow-y:auto;-webkit-overflow-scrolling:touch}#buyModal .box,#chooseModal .box{margin:auto;max-height:none}@media (max-height:760px){#buyModal{align-items:flex-start}#buyModal .box{margin:16px auto}#buyModal .choice{padding:12px 16px}}
 .chooser .choices{display:grid;gap:12px;margin:16px 0 18px}
 .choice{display:block;text-decoration:none;padding:18px 20px;border-radius:16px;border:2px solid transparent;background:linear-gradient(#fff,#fff) padding-box,linear-gradient(90deg,#0F75BC 0%,#0F75BC 50%,#ED1C24 100%) border-box;color:var(--ink)}
 .choice b{display:block;font-size:1.2rem;color:var(--brand-text)}
@@ -864,7 +865,7 @@ footer.site .social svg{width:16px;height:16px;flex:none}
 
   <div class="block">
     <div class="wrap narrow center reveal">
-      <h2 class="big">Found a car you like in Japan?</h2>
+      <h2 class="big">Found a vehicle you like in Japan or China?</h2>
       <p class="sub">Find it on Autocom Japan or BE FORWARD and paste the link here. We confirm the car, send you a full landed-cost quote, and handle buying, shipping and inspection. For Ugandan plates we clear and register it with the Uganda Revenue Authority (URA). For DRC plates it is declared with DGDA customs and registered with the DGI in the Democratic Republic of Congo. Then we deliver it to you.</p>
       <form id="quickLink" class="linkbar" novalidate>
         <label for="qlUrl" class="sr">Vehicle page link</label>
@@ -882,7 +883,7 @@ footer.site .social svg{width:16px;height:16px;flex:none}
         <article class="tile photo reveal"><div class="ttop">
           <span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 13l2.2-5A2 2 0 0 1 7 6.8h10a2 2 0 0 1 1.8 1.2L21 13v4.5h-2M3 13v4.5h2M3 13h18M9 17.5h6"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg></span>
           <h3>THEHASA Mobility / Transportation</h3>
-          <p>Vehicle import from Japan since 2025, delivered in Uganda or the DRC, plus car hire, airport pickup and drop-off, and goods transport.</p>
+          <p>Vehicle import from Japan since 2025, and now from China, delivered in Uganda or the DRC, plus car hire, airport pickup and drop-off, and goods transport.</p>
           
           <span class="status active">Vehicle import active</span>
         </div><div class="tphoto"><img src="img/car-arrival.webp" srcset="img/car-arrival-s.webp 720w, img/car-arrival.webp 1400w" sizes="(max-width:760px) 100vw, 640px" alt="" loading="lazy" decoding="async" style="object-position:center 70%"><span class="bubble" aria-hidden="true"><b>Since 2025</b><small>From Japan to your door</small></span><div class="tilelinks"><a href="/mobility">Learn more &#8250;</a><a href="/request" data-choose="request">Request a car &#8250;</a></div></div></article>
@@ -990,8 +991,8 @@ footer.site .social svg{width:16px;height:16px;flex:none}
   <div class="wrap">
     <h1 class="pagehead">THEHASA Mobility / Transportation</h1>
     <p class="lead">We have been importing vehicles from Japan since 2025. You choose the car. We confirm it, buy it, ship it and have it inspected, then clear and register it with URA in Uganda, or with the DGDA and DGI in the Democratic Republic of Congo, and deliver it to you.</p>
-    <div class="serve reveal"><div><b>For businesses and organisations</b><span>Organisations that need car hire, airport transfers or goods transport, and companies importing vehicles for their work.</span></div><div><b>For individuals and families</b><span>People importing their own car from Japan, families hiring a car with a driver, and travellers needing an airport pickup.</span></div></div>
-    <div class="serve reveal"><div><b>For businesses and organisations</b><span>Organisations that need car hire, airport transfers or goods transport, and companies importing vehicles for their work.</span></div><div><b>For individuals and families</b><span>People importing their own car from Japan, families hiring a car with a driver, and travellers needing an airport pickup.</span></div></div>
+    <div class="serve reveal"><div><b>For businesses and organisations</b><span>Organisations that need car hire, airport transfers or goods transport, and companies importing vehicles for their work.</span></div><div><b>For individuals and families</b><span>People importing their own car from Japan or China, families hiring a car with a driver, and travellers needing an airport pickup.</span></div></div>
+    <div class="serve reveal"><div><b>For businesses and organisations</b><span>Organisations that need car hire, airport transfers or goods transport, and companies importing vehicles for their work.</span></div><div><b>For individuals and families</b><span>People importing their own car from Japan or China, families hiring a car with a driver, and travellers needing an airport pickup.</span></div></div>
     <div class="grid g2" style="margin-top:22px">
       <div class="card role reveal"><h3>Ugandan number plates</h3><p>We clear the vehicle with the Uganda Revenue Authority (URA), pay the import taxes on your behalf from your payment, register it with URA, and deliver it to you anywhere in Uganda.</p></div>
       <div class="card role reveal"><h3>DRC number plates</h3><p>Ordering from the Democratic Republic of Congo? Your vehicle is shipped through Dar es Salaam and enters the DRC at the Goli border, crossing into Mahagi in Ituri Province. There it is declared and cleared with the DRC customs authority, the DGDA (Direction Générale des Douanes et Accises), and then registered with the DGI (Direction Générale des Impôts), which issues DRC number plates. Our partners in the DRC handle both, and we deliver the vehicle to you there.</p></div>
@@ -1034,21 +1035,22 @@ footer.site .social svg{width:16px;height:16px;flex:none}
 
     <div class="section">
       <h2>Find your car</h2>
-      <p>We buy from two established exporters in Japan. Find the car you like on their website, copy its link, and paste it into our request form.</p>
-      <div class="grid g3">
+      <p>We buy from established vehicle exporters in Japan and China. Find the vehicle you like on their website, copy its link, and paste it into our request form.</p>
+      <div class="grid g2">
         <div class="card role"><h3>Autocom Japan</h3><p>Japanese used vehicle exporter based in Yokohama, exporting since 2007.</p><a class="more" href="https://autocj.co.jp/" target="_blank" rel="noopener">Browse cars on Autocom Japan &#8250;</a><span class="lref">autocj.co.jp</span></div>
         <div class="card role"><h3>BE FORWARD</h3><p>Japanese used vehicle exporter based in Tokyo, with a stock list for Uganda.</p><a class="more" href="https://www.beforward.jp/beforward_uganda" target="_blank" rel="noopener">Browse cars on BE FORWARD &#8250;</a><span class="lref">beforward.jp</span></div>
+        <div class="card role"><h3>Huihe Vehicle Sales (China)</h3><p>Vehicle exporter based in Zhengzhou, China, with new and used buses, coasters and minibuses.</p><a class="more" href="https://www.huihe-evcar.com/" target="_blank" rel="noopener">Browse vehicles on Huihe &#8250;</a><span class="lref">huihe-evcar.com</span></div>
         <div class="card"><h3>Request by description</h3><p>No link? Tell us the make, model, year range and budget, and we search for you.</p><a class="more" href="/request">Describe your car</a></div>
       </div>
     </div>
       <div class="callnow" style="margin-top:20px">
-        <div><h3>Prefer to choose with us in person?</h3><p>Not everyone has the time or the internet skills to search these websites, and that is fine. Visit our office and we sit with you, go through the cars on Autocom Japan and BE FORWARD together, confirm the car you want, and prepare your quote with you there. Everything is done in front of you.</p><p class="num" style="font-size:1.2rem">Office: Pakalast, Makindye, Kampala<br><span style="font-size:1rem">Open 8:00 am to 6:00 pm</span></p></div>
+        <div><h3>Prefer to choose with us in person?</h3><p>Not everyone has the time or the internet skills to search these websites, and that is fine. Visit our office and we sit with you, go through the vehicles on Autocom Japan, BE FORWARD and Huihe together, confirm the car you want, and prepare your quote with you there. Everything is done in front of you.</p><p class="num" style="font-size:1.2rem">Office: Pakalast, Makindye, Kampala<br><span style="font-size:1rem">Open 8:00 am to 6:00 pm</span></p></div>
         <a class="btn red" href="tel:+256773008586">Call to book a visit</a><p class="hint" style="margin-top:8px">Kampala office: +256 773 008 586</p>
       </div>
       <div class="panel" style="margin-top:20px">
         <h3>How to send us a car's link</h3>
         <ol class="steps">
-          <li><div>Open Autocom Japan or BE FORWARD using the buttons above.</div></li>
+          <li><div>Open Autocom Japan, BE FORWARD or Huihe using the buttons above.</div></li>
           <li><div>Find the car you want and open its page.</div></li>
           <li><div>Copy the page link: on a phone, tap Share and then Copy, or copy the address at the top of the browser.</div></li>
           <li><div>Come back here, tap <a href="/request">Request a car</a>, and paste the link in the first box.</div></li>
@@ -1087,7 +1089,7 @@ footer.site .social svg{width:16px;height:16px;flex:none}
       <a class="btn red" href="tel:+256773008586">Call</a>
     </div>
     <div class="callnow">
-      <div><h3>Vehicle import and other enquiries</h3><p>Buying a car from Japan, supplies, produce, property or training.</p><p class="num">+256 789 372 627</p></div>
+      <div><h3>Vehicle import and other enquiries</h3><p>Buying a vehicle from Japan or China, supplies, produce, property or training.</p><p class="num">+256 789 372 627</p></div>
       <a class="btn red" href="tel:+256789372627">Call</a>
     </div>
     <p style="margin-top:28px">Prefer to fill in the details? <a class="textlink" href="/request">Book ahead instead &#8250;</a></p>
@@ -1102,8 +1104,8 @@ footer.site .social svg{width:16px;height:16px;flex:none}
     <p class="lead">Takes about two minutes. Your request comes straight to us, and we reply with a written quote or a booking confirmation. We usually reply the same day, and always by the next working day.</p>
     <form id="carForm" class="panel" novalidate>
       <input class="hp" type="text" id="cfHp" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <div class="field"><label for="cfNeed">What do you need?</label><select id="cfNeed"><option>Buy a car (import from Japan)</option><option>Hire a car (with driver)</option><option>Airport pickup or drop-off</option><option>Other</option></select><div class="hint">For hire or airport pickup, add the date, time and place in the last box.</div></div>
-      <div class="field"><label for="cfLink">Vehicle page link (optional)</label><input id="cfLink" type="url" placeholder="Paste the link from Autocom Japan or BE FORWARD"></div>
+      <div class="field"><label for="cfNeed">What do you need?</label><select id="cfNeed"><option>Buy a car (import from Japan or China)</option><option>Hire a car (with driver)</option><option>Airport pickup or drop-off</option><option>Other</option></select><div class="hint">For hire or airport pickup, add the date, time and place in the last box.</div></div>
+      <div class="field"><label for="cfLink">Vehicle page link (optional)</label><input id="cfLink" type="url" placeholder="Paste the link from Autocom Japan, BE FORWARD or Huihe"></div>
       <div class="row">
         <div class="field"><label for="cfMake">Make</label><input id="cfMake" placeholder="e.g. Toyota"></div>
         <div class="field"><label for="cfModel">Model or type</label><input id="cfModel" placeholder="e.g. Noah, or SUV"></div>
@@ -1667,8 +1669,8 @@ footer.site .social svg{width:16px;height:16px;flex:none}
     </div>
 
     <div class="section grid g2">
-      <div class="panel"><h3>Our vision</h3><p style="margin:0">A Uganda, and eventually an Africa, where displacement is not a sentence to permanent poverty: where communities that have survived the worst are given the institutional infrastructure to build the best, and where commerce and conscience operate not as opposites but as partners in the same enterprise.</p></div>
-      <div class="panel"><h3>Our mission</h3><p style="margin:0">To build and operate a diversified, commercially viable multi-sector enterprise that generates sustainable returns, invests 75% of its profits in the social development of refugee and host communities, and demonstrates at scale that African enterprises rooted in displacement contexts can compete, grow, and lead.</p></div>
+      <div class="panel"><h3>Our vision</h3><p style="margin:0">An Africa where every community, refugee and host alike, builds its own prosperity through enterprise and skills.</p></div>
+      <div class="panel"><h3>Our mission</h3><p style="margin:0">To run sustainable businesses that serve our customers well, create work and skills, and share our success with the communities where we work.</p></div>
     </div>
 
     <div class="section panel goal reveal">
@@ -1685,6 +1687,7 @@ footer.site .social svg{width:16px;height:16px;flex:none}
         <div class="value"><b>Ownership and Pride in our work</b><div>We take full responsibility for every job, from the first call to the handover. Our work is our name, so we do it well enough that the customer comes back and sends others.<i>From "Kazi yangu inanipa raha."</i></div></div>
         <div class="value"><b>Integrity and Care</b><div>We weigh every step before we take it. Land titles are checked, payments go only to the company account, agreements are in writing and conflicts of interest are declared.<i>From "Maisha ni kupima pima."</i></div></div>
         <div class="value"><b>Empowerment</b><div>We build people's ability to earn for themselves: farmer groups who sell together, artisans who train others and young people with a trade.<i>From our shared belief: the happy and satisfied depend on their skills.</i></div></div>
+        <div class="value"><b>Resilience</b><div>When something does not work, we learn from it and keep going. When trainees could not pay for training, we changed who pays instead of closing, and the business grew stronger for it.</div></div>
         <div class="value"><b>Shared Success</b><div>A deal is good when everyone in it gains: the customer, the supplier, the farmer group and THEHASA. Fair prices, clear terms, paid on time, and 75% of our net profits go to THEHASA Foundation.</div></div>
       </div>
     </div>
@@ -1730,7 +1733,7 @@ footer.site .social svg{width:16px;height:16px;flex:none}
           <p class="role">Co-Founding Director and Chief Operating Officer</p>
           <p class="quote">"Maisha ni kupima pima."</p>
           <p class="meaning">Life is about weighing things carefully, step by step.</p>
-          <p class="bio">Theophile runs THEHASA's day-to-day operations across our five businesses. He works directly with our partner vehicle exporters in Japan, leads our real estate work, and builds the supplier and partner relationships the company trades on. A hairdressing professional by trade, his habit of weighing every step is the root of the company's value of Integrity and Care.</p>
+          <p class="bio">Theophile runs THEHASA's day-to-day operations across our five businesses. He works directly with our partner vehicle exporters in Japan and China, leads our real estate work, and builds the supplier and partner relationships the company trades on. A hairdressing professional by trade, his habit of weighing every step is the root of the company's value of Integrity and Care.</p>
         </article>
         <article class="member reveal">
           <div class="portrait"><img src="img/dir-nm.webp" alt="Nkedi Maweti" width="160" height="160" loading="lazy" decoding="async"></div>
@@ -1919,7 +1922,7 @@ footer.site .social svg{width:16px;height:16px;flex:none}
       <li><b>Payments</b> are made only to the company bank account in the name THEHASA HOLDINGS COMPANY LIMITED, under a written agreement. Never pay a deposit to an individual or agent personally.</li>
       <li><b>THEHASA Market listings</b> are checked by THEHASA before they appear, but buyers should still inspect the item and sign a written agreement before paying.</li>
       <li><b>No public offer of shares.</b> Nothing on this website is an offer to sell shares. THEHASA is a private company.</li>
-      <li><b>Links</b> to other websites, such as vehicle sellers in Japan, are for your convenience. We are not responsible for their content.</li>
+      <li><b>Links</b> to other websites, such as vehicle sellers in Japan and China, are for your convenience. We are not responsible for their content.</li>
       <li><b>Uganda law</b> governs these terms.</li>
     </ul>
     <p class="hint" style="margin-top:24px">Questions about this page: thehasaholdings@gmail.com · +256 789 372 627</p>
@@ -1991,11 +1994,12 @@ footer.site .social svg{width:16px;height:16px;flex:none}
 
 <div class="modal" id="buyModal" role="dialog" aria-modal="true" aria-labelledby="buyTitle">
   <div class="box chooser">
-    <h3 id="buyTitle">Buy a car from Japan</h3>
-    <p class="hint" style="margin-top:0">Choose a car on one of these two exporters' websites. Copy its link, then send it to us and we handle the rest.</p>
+    <h3 id="buyTitle">Buy a vehicle from Japan or China</h3>
+    <p class="hint" style="margin-top:0">Choose a vehicle on one of our partner exporters' websites. Copy its link, then send it to us and we handle the rest.</p>
     <div class="choices">
       <a class="choice" href="https://autocj.co.jp/" target="_blank" rel="noopener"><b>Autocom Japan</b><span>Browse cars on autocj.co.jp</span></a>
       <a class="choice" href="https://www.beforward.jp/beforward_uganda" target="_blank" rel="noopener"><b>BE FORWARD</b><span>Browse cars on beforward.jp, Uganda stock list</span></a>
+      <a class="choice" href="https://www.huihe-evcar.com/" target="_blank" rel="noopener"><b>Huihe Vehicle Sales (China)</b><span>Browse buses, coasters and minibuses on huihe-evcar.com</span></a>
     </div>
     <div class="choices" style="grid-template-columns:1fr">
       <a class="choice" href="/request" data-buyclose="1"><b>I have chosen a car</b><span>Send us its link or describe it. We reply with a written quote.</span></a>
